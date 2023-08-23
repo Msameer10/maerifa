@@ -13,8 +13,8 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Ma'rifa</title>
 </head>
-<body>
-     <!-- Navigation Bar -->
+<body onload="typeWriter()">
+   <!-- Navigation Bar -->
 
 <nav class="d-none d-sm-none d-md-flex">
   <div class="logo">
@@ -22,9 +22,9 @@
   </div>
   <div class="menu">
     <ul>
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="thelist.html">The List</a></li>
-      <li><a href="pricing.html">misc.</a></li>
+      <li><a href="pricing.html" class="active">misc.</a></li>
       <li><a href="signup.html" class="signup">Sign Up</a></li>
     </ul>
   </div>
@@ -33,7 +33,7 @@
 
   <!-- Mobile Navigation Bar -->
 <div class="mtopnav d-md-none">
-  <a class="d-md-none" href="#" id="mh1"><span>Ma</span><span class="text-dark">'rifa</span></a>
+  <a class="d-md-none" href="#" id="mh1"><span class="text-dark">Ma</span><span class="text-danger">'rifa</span></a>
   <div id="myLinks">
     <a href="index.html">Home</a>
     <a href="thelist.html">The List</a>
@@ -46,15 +46,10 @@
 </div>
 
   <!-- Content -->
-
-<p id="cs"></p>
-
-
-
-
-
+ 
 
   <!-- footer -->
+
 
 <div class="footer">
   <div class="footer-links">
@@ -79,6 +74,7 @@ function myFunction() {
   }
 }
 </script>
+
 
 </body>
 </html>

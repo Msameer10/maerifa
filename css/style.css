@@ -2,16 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Lugrasimo&display=swap');
 
 
 #mh1{
-	padding: 10px, 0, 20px, 10px;
+	padding: 20px 25px;
   font-weight: bold;
   font-size: 24px;
-}
-
-div#h1{
-	padding: 12px 0 18px 25px;
+  color: #CB4335;
+  font-family: Lugrasimo;
 }
 
 /*Nav bar*/
@@ -22,14 +21,15 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 40px 20px;
 }
 
 .logo a {
-  color: #ff0000;
+  color: #CB4335;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 30px;
   text-decoration: none;
+  font-family: Lugrasimo;
 }
 
 .logo a span {
@@ -75,9 +75,9 @@ nav {
 }
 
 .menu a.active{
-  background-color:  #ff0000;
+  background-color:  #CB4335;
   color: #ffffff;
-  border-color:  #ff0000;
+  border-color:  #CB4335;
 }
 
 
@@ -97,7 +97,8 @@ nav {
 }
 
 .mtopnav a {
-  padding: 14px 20px;
+  padding: 25px 25px;
+  margin: 0;
   text-decoration: none;
   font-size: 20px;
   display: block;
@@ -118,94 +119,6 @@ nav {
 
 
 /*	content*/
-
-#cs{
-	text-align: center;
-	font-size: 30px;
-	margin: 30vh 0;
-	font-family: Roboto;
-  font-style: italic;
-}
-
-
-/*pricing*/
-
-.pricing-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  margin: 10vh 0;
-}
-
-.pricing-column {
-  width: 300px;
-  margin: 1px 10px;
-}
-
-
-.pricing-column:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  transform: scale(1.05);
-  transition-duration: 0.5s;
-}
-
-.pricing-table {
-  list-style-type: none;
-  margin: 10 vh;
-  padding: 0;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.pricing-table .pricing-header {
-  background-color: #212F3D;
-  color: white;
-  font-size: 35px;
-  padding: 20px;
-}
-
-.pricing-table .pricing-price {
-  font-size: 30px;
-  margin: 20px 0;
-  font-family: Quicksand;
-}
-
-.pricing-table .pricing-feature {
-  font-size: 18px;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  font-family: 'Roboto Mono';
-}
-
-.pricing-table .pricing-button {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.pricing-table a.button {
-  background-color: #3498DB;
-  border-radius: 25px;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-@media only screen and (max-width: 600px) {
-  .pricing-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .pricing-column {
-    width: 100%;
-    margin: 10px 0;
-  }
-}
-
 
 
 
