@@ -51,7 +51,8 @@ nav {
   display: block;
   padding: 10px 15px;
   border-radius: 5px;
-  color: #000000;
+  color: #ffffff;
+  background: #000000;
   text-decoration: none;
   border: 3px solid #000000;
   transition: all 0.3s ease;
@@ -138,6 +139,45 @@ nav {
   font-size: 20px;
 }
 
+/*    the list    */
+
+#search {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+#searchInput {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #CB4335;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    width: 60%;
+}
+
+#searchButton {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*    articles    */
+
+.a-title{
+  font-size: 30px;
+}
+
+.a-image{}
+
+.a-para{}
+
+.a-end{}
+
+
 /* footer*/
 
 .ftrtxt{
@@ -146,7 +186,7 @@ nav {
 }
 
 .ftrtxt .subtxt1{
-  color: #ff0000;
+  color: #CB4335;
   font-family: Lugrasimo;
 }
 
