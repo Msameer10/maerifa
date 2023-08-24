@@ -50,7 +50,7 @@ nav {
 .menu a {
   display: block;
   padding: 10px 15px;
-  border-radius: 25px;
+  border-radius: 5px;
   color: #000000;
   text-decoration: none;
   border: 3px solid #000000;
@@ -122,12 +122,53 @@ nav {
 
 /*  index   */
 
+#banner{
+  background: #000000;
+  text-align: center;
+  font-family: Lugrasimo;
+  font-size: 9vw;
+}
+
+#banner span{
+  color: #ff0000;
+}
+
 #mainclass{
   font-family: Quicksand;
   font-size: 20px;
 }
 
 /* footer*/
+
+.ftrtxt{
+  background: transparent;
+  font-size: 1.5em;
+}
+
+.ftrtxt .subtxt1{
+  color: #ff0000;
+  font-family: Lugrasimo;
+}
+
+.ftrtxt .subtxt2{
+  font-family: Lugrasimo;
+}
+
+.ftrtxt .subtxt3{
+  
+}
+
+.subtxt4 , .subtxt5{
+  font-family: Trajan Pro, Cinzel;
+}
+
+.subtxt4{
+  color: #E74C3C;
+}
+
+.subtxt5{
+  color: #2471A3;
+}
 
 .footer {
   background: #111111;
@@ -160,4 +201,8 @@ nav {
 
 .footer p {
   margin-top: 30px;
+}
+
+#cprtxt{
+  font-family: Lugrasimo;
 }
