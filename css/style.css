@@ -97,7 +97,7 @@ nav {
 }
 
 .mtopnav a {
-  padding: 25px 25px;
+  padding: 25px 29px;
   margin: 0;
   text-decoration: none;
   font-size: 20px;
@@ -120,9 +120,12 @@ nav {
 
 /*	content*/
 
+/*  index   */
 
-
-
+#mainclass{
+  font-family: Quicksand;
+  font-size: 20px;
+}
 
 /* footer*/
 
@@ -152,7 +155,7 @@ nav {
 
 .footer-links a:hover {
   color: #ff0000;
-  border-bottom: 1px dotted #ff0000;
+  border-bottom: 1px solid #ff0000;
 }
 
 .footer p {
