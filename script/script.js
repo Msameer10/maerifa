@@ -1,9 +1,5 @@
 const cardContainer = document.getElementById('cardContainer');
-const contentContainer = document.getElementById('contentContainer');
 const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
-
-let articlesData = []; // Store fetched articles data
 
 // Function to fetch article data from data.json
 async function fetchArticleData() {
@@ -23,32 +19,22 @@ function createArticleCard(article) {
   card.className = 'card mb-3';
   card.style.marginRight = '10px'; // Add margin for horizontal gap between cards
   card.innerHTML = `
-    <div class="card-body">
-      <h5 class="card-title">${article.title}</h5>
-      <p class="card-text">${article.summary}</p>
-      <button class="btn btn-primary read-more-btn" data-article-url="${article.url}">Read More</button>
-    </div>
+    <a href="#" data-article-url="${article.url}">
+      <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
+      <div class="card-body">
+        <h5 class="card-title">${article.title}</h5>
+      </div>
+    </a>
   `;
   cardContainer.appendChild(card);
 }
 
-// Function to load article page content
-async function loadArticlePage(articleUrl) {
-  try {
-    const response = await fetch(articleUrl);
-    const articleContent = await response.text();
-    contentContainer.innerHTML = articleContent;
-  } catch (error) {
-    console.error('Error loading article content:', error);
-  }
-}
-
 // Display randomized articles on page load
 async function displayRandomizedArticles() {
-  articlesData = await fetchArticleData();
+  const articles = await fetchArticleData();
 
   // Randomize the articles array
-  const randomizedArticles = articlesData.sort(() => Math.random() - 0.5);
+  const randomizedArticles = articles.sort(() => Math.random() - 0.5);
 
   cardContainer.innerHTML = ''; // Clear existing cards
 
@@ -61,15 +47,20 @@ async function displayRandomizedArticles() {
 displayRandomizedArticles();
 
 // Click event listener to navigate to individual article pages
-cardContainer.addEventListener('click', async (event) => {
-  const clickedButton = event.target.closest('.read-more-btn');
-  if (clickedButton) {
-    const articleUrl = clickedButton.getAttribute('data-article-url');
-    await loadArticlePage(articleUrl); // Load the article page content
-    cardContainer.style.display = 'none';
-    contentContainer.style.display = 'block';
+cardContainer.addEventListener('click', (event) => {
+  const clickedCard = event.target.closest('.card');
+  if (clickedCard) {
+    const articleUrl = clickedCard.getAttribute('data-article-url');
+    loadArticlePage(articleUrl); // Load the article page content
   }
 });
+
+// Function to load article page content
+async function loadArticlePage(articleUrl) {
+  const response = await fetch(articleUrl);
+  const articleContent = await response.text();
+  document.getElementById('contentContainer').innerHTML = articleContent;
+}
 
 // Search input event listener
 searchInput.addEventListener('input', () => {
@@ -77,10 +68,12 @@ searchInput.addEventListener('input', () => {
 
   cardContainer.innerHTML = ''; // Clear existing cards
 
-  articlesData
-    .filter(article => article.title.toLowerCase().includes(query))
-    .slice(0, 4)
-    .forEach(article => {
-      createArticleCard(article);
-    });
+  fetchArticleData().then(articles => {
+    articles
+      .filter(article => article.title.toLowerCase().includes(query))
+      .slice(0, 4)
+      .forEach(article => {
+        createArticleCard(article);
+      });
+  });
 });
