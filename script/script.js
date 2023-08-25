@@ -18,7 +18,7 @@ function createArticleCard(article) {
   const card = document.createElement('div');
   card.className = 'card mb-3';
   card.style.marginRight = '10px'; // Add margin for horizontal gap between cards
-  card.style.height = '350px'; // Set a fixed height for the card
+  card.style.height = '300px'; // Set a fixed height for the card
 
   card.innerHTML = `
     <a href="#" data-article-url="${article.url}">
