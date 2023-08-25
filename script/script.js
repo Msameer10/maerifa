@@ -21,13 +21,14 @@ function createArticleCard(article) {
   card.innerHTML = `
     <a href="#" data-article-url="${article.url}">
       <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
-      <div class="card-body">
+      <div class="card-body" style="height: 150px;"> <!-- Set a fixed height for the card body -->
         <h5 class="card-title">${article.title}</h5>
       </div>
     </a>
   `;
   cardContainer.appendChild(card);
 }
+
 
 // Display randomized articles on page load
 async function displayRandomizedArticles() {
