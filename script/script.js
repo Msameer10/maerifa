@@ -15,30 +15,29 @@ async function fetchArticleData() {
 }
 
 // Function to create article cards
-async function createArticleCards(query = '') {
+async function createArticleCards() {
   const articles = await fetchArticleData();
 
   cardContainer.innerHTML = '';
 
-  const lowerCaseQuery = query.toLowerCase(); // Convert query to lowercase
+  // Shuffle the articles array randomly
+  const shuffledArticles = articles.sort(() => Math.random() - 0.5);
 
-  articles.forEach(article => {
-    const lowerCaseTitle = article.title.toLowerCase(); // Convert title to lowercase
-
-    if (lowerCaseTitle.includes(lowerCaseQuery)) {
-      const card = document.createElement('div');
-      card.className = 'card mb-3';
-      card.innerHTML = `
-        <a href="${article.url}" target="_blank">
-          <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
-          <div class="card-body">
-            <h5 class="card-title">${article.title}</h5>
-          </div>
-        </a>
-      `;
-      cardContainer.appendChild(card);
-    }
-  });
+  // Display the first 4 shuffled articles
+  for (let i = 0; i < 4 && i < shuffledArticles.length; i++) {
+    const article = shuffledArticles[i];
+    const card = document.createElement('div');
+    card.className = 'card col-md-3 mb-3';
+    card.innerHTML = `
+      <a href="${article.url}" target="_blank">
+        <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
+        <div class="card-body">
+          <h5 class="card-title">${article.title}</h5>
+        </div>
+      </a>
+    `;
+    cardContainer.appendChild(card);
+  }
 }
 
 
