@@ -27,7 +27,7 @@ async function createArticleCards() {
   for (let i = 0; i < 4 && i < shuffledArticles.length; i++) {
     const article = shuffledArticles[i];
     const card = document.createElement('div');
-    card.className = 'card col-md-3 mb-3';
+    card.className = 'card col-md-3 mb-3 mx-2';
     card.innerHTML = `
       <a href="${article.url}" target="_blank">
         <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
