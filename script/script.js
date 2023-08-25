@@ -29,28 +29,24 @@ function createArticleCard(article) {
   cardContainer.appendChild(card);
 }
 
-// Display all articles initially
-async function displayAllArticles() {
+// Display articles based on search input
+async function displayFilteredArticles(query = '') {
   const articles = await fetchArticleData();
-  articles.slice(0, 4).forEach(article => {
+  const filteredArticles = articles
+    .filter(article => article.title.toLowerCase().includes(query.toLowerCase()))
+    .slice(0, 4);
+
+  cardContainer.innerHTML = ''; // Clear existing cards
+
+  filteredArticles.forEach(article => {
     createArticleCard(article);
   });
 }
 
 // Create article cards on page load
-displayAllArticles();
+displayFilteredArticles();
 
 // Search input event listener
-searchInput.addEventListener('input', async () => {
-  const articles = await fetchArticleData();
-  const query = searchInput.value.toLowerCase();
-
-  cardContainer.innerHTML = ''; // Clear existing cards
-
-  articles
-    .filter(article => article.title.toLowerCase().includes(query))
-    .slice(0, 4)
-    .forEach(article => {
-      createArticleCard(article);
-    });
+searchInput.addEventListener('input', () => {
+  displayFilteredArticles(searchInput.value);
 });
