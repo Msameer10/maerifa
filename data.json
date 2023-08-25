@@ -1,7 +1,7 @@
 [
   {
     "title": "FC Barcelona",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/473px-FC_Barcelona_%28crest%29.svg.png",
+    "imageUrl": "",
     "url": "articles/fcbarcelona.html"
   },
   {
@@ -25,3 +25,6 @@
     "url": "articles/article2.html"
   }
 ]
+
+
+// https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/473px-FC_Barcelona_%28crest%29.svg.png
