@@ -19,20 +19,20 @@ function createArticleCard(article) {
   card.className = 'card mb-3';
   card.style.marginRight = '10px'; // Add margin for horizontal gap between cards
   card.style.height = '300px'; // Set a fixed height for the card
-  card.style.width = '300px'; 
+  card.style.width = '300px';
 
   card.innerHTML = `
-    <a href="#" data-article-url="${article.url}">
+    <div class="clickable-card" data-article-url="${article.url}">
       <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}" style="height: 150px;"> <!-- Set a fixed height for the image -->
       <div class="card-body text-center">
         <h3 class="card-title">${article.title}</h3>
       </div>
-    </a>
+    </div>
   `;
 
   cardContainer.appendChild(card);
+  return card; // Return the created card element
 }
-
 
 // Display randomized articles on page load
 async function displayRandomizedArticles() {
@@ -44,23 +44,18 @@ async function displayRandomizedArticles() {
   cardContainer.innerHTML = ''; // Clear existing cards
 
   randomizedArticles.slice(0, 4).forEach(article => {
-    createArticleCard(article);
+    const card = createArticleCard(article);
+    
+    // Add a click event listener to the card
+    card.addEventListener('click', (event) => {
+      const articleUrl = card.getAttribute('data-article-url');
+      window.location.href = articleUrl;
+    });
   });
 }
 
 // Create article cards on page load
 displayRandomizedArticles();
-
-// Click event listener to navigate to individual article pages
-cardContainer.addEventListener('click', (event) => {
-  console.log('Card clicked'); // Check if the event is firing----------------
-  const clickedCard = event.target.closest('.card');
-  if (clickedCard) {
-    const articleUrl = clickedCard.getAttribute('data-article-url');
-    console.log('Article URL:', articleUrl); // Check if the URL is correct--------------
-    window.location.href = articleUrl; // Navigate to the article page
-  }
-});
 
 // Search input event listener
 searchInput.addEventListener('input', () => {
@@ -73,7 +68,13 @@ searchInput.addEventListener('input', () => {
       .filter(article => article.title.toLowerCase().includes(query))
       .slice(0, 4)
       .forEach(article => {
-        createArticleCard(article);
+        const card = createArticleCard(article);
+        
+        // Add a click event listener to the card
+        card.addEventListener('click', (event) => {
+          const articleUrl = card.getAttribute('data-article-url');
+          window.location.href = articleUrl;
+        });
       });
   });
 });
