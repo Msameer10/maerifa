@@ -26,7 +26,7 @@ function createArticleCard(article) {
     <div class="card-body">
       <h5 class="card-title">${article.title}</h5>
       <p class="card-text">${article.summary}</p>
-      <a href="#" data-article-url="${article.url}" class="btn btn-primary">Read More</a>
+      <button class="btn btn-primary read-more-btn" data-article-url="${article.url}">Read More</button>
     </div>
   `;
   cardContainer.appendChild(card);
@@ -62,7 +62,7 @@ displayRandomizedArticles();
 
 // Click event listener to navigate to individual article pages
 cardContainer.addEventListener('click', async (event) => {
-  const clickedButton = event.target.closest('.btn');
+  const clickedButton = event.target.closest('.read-more-btn');
   if (clickedButton) {
     const articleUrl = clickedButton.getAttribute('data-article-url');
     await loadArticlePage(articleUrl); // Load the article page content

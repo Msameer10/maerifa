@@ -1,30 +1,43 @@
 [
   {
     "title": "FC Barcelona",
-    "imageUrl": "",
+    "summary": "This is the summary of Article 1.",
+    "imageUrl": "article1.jpg",
     "url": "articles/fcbarcelona.html"
   },
   {
-    "title": "lyphoms",
+    "title": "Article 2",
+    "summary": "This is the summary of Article 2.",
     "imageUrl": "article2.jpg",
     "url": "articles/article2.html"
   },
   {
-    "title": "Phantom",
+    "title": "Article 3",
+    "summary": "This is the summary of Article 3.",
     "imageUrl": "article2.jpg",
     "url": "articles/article2.html"
   },
   {
-    "title": "Art",
+    "title": "Article 4",
+    "summary": "This is the summary of Article 4.",
     "imageUrl": "article2.jpg",
     "url": "articles/article2.html"
   },
   {
-    "title": "Barista",
+    "title": "Article 5",
+    "summary": "This is the summary of Article 5.",
+    "imageUrl": "article2.jpg",
+    "url": "articles/article2.html"
+  },
+  {
+    "title": "Article 6",
+    "summary": "This is the summary of Article 6.",
     "imageUrl": "article2.jpg",
     "url": "articles/article2.html"
   }
+  // Add more articles here
 ]
+
 
 
 // https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/473px-FC_Barcelona_%28crest%29.svg.png
