@@ -146,8 +146,8 @@ nav {
 }
 
 .card {
-  height: 300px; /* Set a fixed height for the cards */
-  width: 300px;
+  height: 250px; /* Set a fixed height for the cards */
+  width: 250px;
 }
 
 .card .card-img-top {
