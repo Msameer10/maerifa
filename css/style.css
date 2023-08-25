@@ -145,6 +145,14 @@ nav {
   margin-top: 20px;
 }
 
+.form-control {
+  border-radius: 25px; /* Apply border radius to form controls */
+}
+
+.btn {
+  border-radius: 25px; /* Apply border radius to buttons */
+}
+
 /*    articles    */
 
 .a-title{
