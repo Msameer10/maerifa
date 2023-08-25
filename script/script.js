@@ -30,7 +30,6 @@ function createArticleCard(article) {
     </div>
   `;
 
-  cardContainer.appendChild(card);
   return card; // Return the created card element
 }
 
@@ -45,17 +44,21 @@ async function displayRandomizedArticles() {
 
   randomizedArticles.slice(0, 4).forEach(article => {
     const card = createArticleCard(article);
-    
-    // Add a click event listener to the card
-    card.addEventListener('click', (event) => {
-      const articleUrl = card.getAttribute('data-article-url');
-      window.location.href = articleUrl;
-    });
+    cardContainer.appendChild(card);
   });
 }
 
 // Create article cards on page load
 displayRandomizedArticles();
+
+// Click event listener using event delegation
+cardContainer.addEventListener('click', (event) => {
+  const clickedCard = event.target.closest('.clickable-card');
+  if (clickedCard) {
+    const articleUrl = clickedCard.getAttribute('data-article-url');
+    window.location.href = articleUrl;
+  }
+});
 
 // Search input event listener
 searchInput.addEventListener('input', () => {
@@ -69,12 +72,7 @@ searchInput.addEventListener('input', () => {
       .slice(0, 4)
       .forEach(article => {
         const card = createArticleCard(article);
-        
-        // Add a click event listener to the card
-        card.addEventListener('click', (event) => {
-          const articleUrl = card.getAttribute('data-article-url');
-          window.location.href = articleUrl;
-        });
+        cardContainer.appendChild(card);
       });
   });
 });
