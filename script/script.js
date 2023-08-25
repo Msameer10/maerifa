@@ -21,7 +21,7 @@ function createArticleCard(article) {
   card.className = 'card mb-3';
   card.style.marginRight = '10px'; // Add margin for horizontal gap between cards
   card.innerHTML = `
-    <a href="${article.url}" target="_blank">
+    <a href="${article.url}">
       <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
       <div class="card-body">
         <h5 class="card-title">${article.title}</h5>
