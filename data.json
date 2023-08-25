@@ -5,23 +5,38 @@
     "url": "articles/fcbarcelona.html"
   },
   {
-    "title": "Article 2",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
+    "title": "FC Barcelona",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/473px-FC_Barcelona_%28crest%29.svg.png",
+    "url": "articles/fcbarcelona.html"
   },
   {
-    "title": "Article 3",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
+    "title": "FC Barcelona",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/473px-FC_Barcelona_%28crest%29.svg.png",
+    "url": "articles/fcbarcelona.html"
   },
   {
-    "title": "Article 4",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
-  },
-  {
-    "title": "Article 5",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
+    "title": "FC Barcelona",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/473px-FC_Barcelona_%28crest%29.svg.png",
+    "url": "articles/fcbarcelona.html"
   }
+  // {
+  //   "title": "Article 2",
+  //   "imageUrl": "article2.jpg",
+  //   "url": "articles/article2.html"
+  // },
+  // {
+  //   "title": "Article 3",
+  //   "imageUrl": "article2.jpg",
+  //   "url": "articles/article2.html"
+  // },
+  // {
+  //   "title": "Article 4",
+  //   "imageUrl": "article2.jpg",
+  //   "url": "articles/article2.html"
+  // },
+  // {
+  //   "title": "Article 5",
+  //   "imageUrl": "article2.jpg",
+  //   "url": "articles/article2.html"
+  // }
 ]
