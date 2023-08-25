@@ -1,6 +1,5 @@
 const cardContainer = document.getElementById('cardContainer');
 const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
 
 // Function to fetch article data from data.json
 async function fetchArticleData() {
@@ -15,42 +14,43 @@ async function fetchArticleData() {
 }
 
 // Function to create article cards
-async function createArticleCards(query = '') {
+function createArticleCard(article) {
+  const card = document.createElement('div');
+  card.className = 'card mb-3';
+  card.style.marginRight = '10px'; // Add margin for horizontal gap between cards
+  card.innerHTML = `
+    <a href="${article.url}" target="_blank">
+      <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
+      <div class="card-body">
+        <h5 class="card-title">${article.title}</h5>
+      </div>
+    </a>
+  `;
+  cardContainer.appendChild(card);
+}
+
+// Display all articles initially
+async function displayAllArticles() {
   const articles = await fetchArticleData();
-
-  cardContainer.innerHTML = '';
-
-  // Filter the articles based on the search query
-  const filteredArticles = articles.filter(article =>
-    article.title.toLowerCase().includes(query.toLowerCase())
-  );
-
-  // Display the filtered articles
-  filteredArticles.slice(0, 4).forEach(article => {
-    const card = document.createElement('div');
-    card.className = 'card mb-3';
-    card.style.marginRight = '10px'; // Add margin for horizontal gap between cards
-    card.innerHTML = `
-      <a href="${article.url}" target="_blank">
-        <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
-        <div class="card-body">
-          <h5 class="card-title">${article.title}</h5>
-        </div>
-      </a>
-    `;
-    cardContainer.appendChild(card);
+  articles.slice(0, 4).forEach(article => {
+    createArticleCard(article);
   });
 }
 
 // Create article cards on page load
-createArticleCards();
-
-// Search button click event listener
-searchButton.addEventListener('click', () => {
-  createArticleCards(searchInput.value);
-});
+displayAllArticles();
 
 // Search input event listener
-searchInput.addEventListener('input', () => {
-  createArticleCards(searchInput.value);
+searchInput.addEventListener('input', async () => {
+  const articles = await fetchArticleData();
+  const query = searchInput.value.toLowerCase();
+
+  cardContainer.innerHTML = ''; // Clear existing cards
+
+  articles
+    .filter(article => article.title.toLowerCase().includes(query))
+    .slice(0, 4)
+    .forEach(article => {
+      createArticleCard(article);
+    });
 });
