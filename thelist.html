@@ -36,7 +36,7 @@
   <a class="d-md-none" href="index.html" id="mh1"><span>Ma</span><span class="text-dark">'rifa</span></a>
   <div id="myLinks">
     <a href="index.html">Home</a>
-    <a href="thelist.html">THe List</a>
+    <a href="thelist.html">The List</a>
     <a href="pricing.html">misc.</a>
     <a href="signup.html">Sign Up</a>
   </div>
@@ -48,18 +48,30 @@
   <!-- Content -->
  <!-- Search Bar -->
 
-<div class="container-fluid p-5 mb-5">
 
-<main class="float-right">
-  <section id="search">
-    <input type="text" id="searchInput" placeholder="Search articles...">
-    <button id="searchButton">Search</button>
-  </section>
-  <section id="searchResults">
-            <!-- Search results will be displayed here -->
-  </section>
-</main>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search articles">
+        <div class="input-group-append">
+        <button class="btn btn-primary" id="searchButton" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card-container" id="cardContainer">
+      <!-- Cards will be dynamically added here -->
+      </div>
+    </div>
+  </div>
 </div>
+
+
+
+
 
   <!-- footer -->
 

@@ -141,28 +141,8 @@ nav {
 
 /*    the list    */
 
-#search {
-    text-align: center;
-    margin: 2rem 0;
-}
-
-#searchInput {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 2px solid #CB4335;
-    border-radius: 4px;
-    margin-right: 0.5rem;
-    width: 60%;
-}
-
-#searchButton {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+.card-container {
+  margin-top: 20px;
 }
 
 /*    articles    */

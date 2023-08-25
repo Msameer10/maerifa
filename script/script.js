@@ -1,32 +1,51 @@
-// Function to perform search
-function performSearch(query) {
-    const searchResultsSection = document.getElementById("searchResults");
-    searchResultsSection.innerHTML = ""; // Clear previous search results
+const cardContainer = document.getElementById('cardContainer');
+const searchInput = document.getElementById('searchInput');
+const searchButton = document.getElementById('searchButton');
 
-    // Fetch the list of articles from the JSON file
-    fetch("articles.json")
-        .then(response => response.json())
-        .then(data => {
-            const articles = data.articles;
-
-            articles.forEach(article => {
-                fetch(`articles/${article}`)
-                    .then(response => response.text())
-                    .then(content => {
-                        if (content.toLowerCase().includes(query.toLowerCase())) {
-                            const articleElement = document.createElement("article");
-                            articleElement.innerHTML = content;
-                            searchResultsSection.appendChild(articleElement);
-                        }
-                    });
-            });
-        });
+// Function to fetch article data from data.json
+async function fetchArticleData() {
+  try {
+    const response = await fetch('data.json');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching article data:', error);
+    return [];
+  }
 }
 
-// Event listener for search button
-const searchButton = document.getElementById("searchButton");
-searchButton.addEventListener("click", () => {
-    const searchInput = document.getElementById("searchInput");
-    const query = searchInput.value;
-    performSearch(query);
+// Function to create article cards
+async function createArticleCards(query = '') {
+  const articles = await fetchArticleData();
+
+  cardContainer.innerHTML = '';
+
+  articles.forEach(article => {
+    if (article.title.toLowerCase().includes(query.toLowerCase())) {
+      const card = document.createElement('div');
+      card.className = 'card mb-3';
+      card.innerHTML = `
+        <a href="${article.url}" target="_blank">
+          <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
+          <div class="card-body">
+            <h5 class="card-title">${article.title}</h5>
+          </div>
+        </a>
+      `;
+      cardContainer.appendChild(card);
+    }
+  });
+}
+
+// Create article cards on page load
+createArticleCards();
+
+// Search button click event listener
+searchButton.addEventListener('click', () => {
+  createArticleCards(searchInput.value);
+});
+
+// Search input event listener
+searchInput.addEventListener('input', () => {
+  createArticleCards(searchInput.value);
 });
