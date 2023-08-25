@@ -20,8 +20,12 @@ async function createArticleCards(query = '') {
 
   cardContainer.innerHTML = '';
 
+  const lowerCaseQuery = query.toLowerCase(); // Convert query to lowercase
+
   articles.forEach(article => {
-    if (article.title.toLowerCase().includes(query.toLowerCase())) {
+    const lowerCaseTitle = article.title.toLowerCase(); // Convert title to lowercase
+
+    if (lowerCaseTitle.includes(lowerCaseQuery)) {
       const card = document.createElement('div');
       card.className = 'card mb-3';
       card.innerHTML = `
@@ -36,6 +40,7 @@ async function createArticleCards(query = '') {
     }
   });
 }
+
 
 // Create article cards on page load
 createArticleCards();
