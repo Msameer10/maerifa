@@ -145,17 +145,6 @@ nav {
   margin-top: 20px;
 }
 
-.form-control,
-.btn {
-  border-radius: 0; /* Reset default border-radius */
-}
-
-/* Apply the desired border-radius to the search bar and button */
-#searchInput,
-#searchButton {
-  border-radius: 25px; /* Apply border radius */
-}
-
 
 /*    articles    */
 
