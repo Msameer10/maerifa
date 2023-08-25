@@ -141,9 +141,6 @@ nav {
 
 /*    the list    */
 
-.card-container {
-  margin-top: 150px;
-}
 
 .card {
   height: 250px; /* Set a fixed height for the cards */
