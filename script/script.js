@@ -51,16 +51,9 @@ cardContainer.addEventListener('click', (event) => {
   const clickedCard = event.target.closest('.card');
   if (clickedCard) {
     const articleUrl = clickedCard.getAttribute('data-article-url');
-    loadArticlePage(articleUrl); // Load the article page content
+    window.location.href = articleUrl; // Navigate to the article page
   }
 });
-
-// Function to load article page content
-async function loadArticlePage(articleUrl) {
-  const response = await fetch(articleUrl);
-  const articleContent = await response.text();
-  document.getElementById('contentContainer').innerHTML = articleContent;
-}
 
 // Search input event listener
 searchInput.addEventListener('input', () => {
