@@ -145,6 +145,15 @@ nav {
   margin-top: 20px;
 }
 
+.card {
+  height: 250px; /* Set a fixed height for the cards */
+}
+
+.card .card-img-top {
+  height: 150px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure images maintain aspect ratio */
+}
+
 /*    articles    */
 
 .a-title{
