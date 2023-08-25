@@ -25,7 +25,7 @@ function createArticleCard(article) {
     <a href="#" data-article-url="${article.url}">
       <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}" style="height: 150px;"> <!-- Set a fixed height for the image -->
       <div class="card-body">
-        <h5 class="card-title">${article.title}</h5>
+        <h4 class="card-title">${article.title}</h4>
       </div>
     </a>
   `;
