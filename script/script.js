@@ -53,9 +53,11 @@ displayRandomizedArticles();
 
 // Click event listener to navigate to individual article pages
 cardContainer.addEventListener('click', (event) => {
+  console.log('Card clicked'); // Check if the event is firing----------------
   const clickedCard = event.target.closest('.card');
   if (clickedCard) {
     const articleUrl = clickedCard.getAttribute('data-article-url');
+    console.log('Article URL:', articleUrl); // Check if the URL is correct--------------
     window.location.href = articleUrl; // Navigate to the article page
   }
 });
