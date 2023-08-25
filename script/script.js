@@ -1,8 +1,6 @@
 const cardContainer = document.getElementById('cardContainer');
 const searchInput = document.getElementById('searchInput');
 
-let articles = []; // Store all articles
-
 // Function to fetch article data from data.json
 async function fetchArticleData() {
   try {
@@ -21,7 +19,7 @@ function createArticleCard(article) {
   card.className = 'card mb-3';
   card.style.marginRight = '10px'; // Add margin for horizontal gap between cards
   card.innerHTML = `
-    <a href="${article.url}">
+    <a href="#" data-article-url="${article.url}">
       <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
       <div class="card-body">
         <h5 class="card-title">${article.title}</h5>
@@ -33,7 +31,7 @@ function createArticleCard(article) {
 
 // Display randomized articles on page load
 async function displayRandomizedArticles() {
-  articles = await fetchArticleData();
+  const articles = await fetchArticleData();
 
   // Randomize the articles array
   const randomizedArticles = articles.sort(() => Math.random() - 0.5);
@@ -48,16 +46,27 @@ async function displayRandomizedArticles() {
 // Create article cards on page load
 displayRandomizedArticles();
 
+// Click event listener to navigate to individual article pages
+cardContainer.addEventListener('click', (event) => {
+  const clickedCard = event.target.closest('.card');
+  if (clickedCard) {
+    const articleUrl = clickedCard.getAttribute('data-article-url');
+    window.location.href = articleUrl; // Navigate to the article page
+  }
+});
+
 // Search input event listener
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
 
   cardContainer.innerHTML = ''; // Clear existing cards
 
-  articles
-    .filter(article => article.title.toLowerCase().includes(query))
-    .slice(0, 4)
-    .forEach(article => {
-      createArticleCard(article);
-    });
+  fetchArticleData().then(articles => {
+    articles
+      .filter(article => article.title.toLowerCase().includes(query))
+      .slice(0, 4)
+      .forEach(article => {
+        createArticleCard(article);
+      });
+  });
 });
