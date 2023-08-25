@@ -18,14 +18,17 @@ function createArticleCard(article) {
   const card = document.createElement('div');
   card.className = 'card mb-3';
   card.style.marginRight = '10px'; // Add margin for horizontal gap between cards
+  card.style.height = '250px'; // Set a fixed height for the card
+
   card.innerHTML = `
     <a href="#" data-article-url="${article.url}">
-      <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}">
-      <div class="card-body" style="height: 50px;"> <!-- Set a fixed height for the card body -->
+      <img src="${article.imageUrl}" class="card-img-top" alt="${article.title}" style="height: 150px;"> <!-- Set a fixed height for the image -->
+      <div class="card-body">
         <h5 class="card-title">${article.title}</h5>
       </div>
     </a>
   `;
+
   cardContainer.appendChild(card);
 }
 
