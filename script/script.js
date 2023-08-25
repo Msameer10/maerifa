@@ -1,6 +1,8 @@
 const cardContainer = document.getElementById('cardContainer');
 const searchInput = document.getElementById('searchInput');
 
+let articles = []; // Store all articles
+
 // Function to fetch article data from data.json
 async function fetchArticleData() {
   try {
@@ -29,24 +31,33 @@ function createArticleCard(article) {
   cardContainer.appendChild(card);
 }
 
-// Display articles based on search input
-async function displayFilteredArticles(query = '') {
-  const articles = await fetchArticleData();
-  const filteredArticles = articles
-    .filter(article => article.title.toLowerCase().includes(query.toLowerCase()))
-    .slice(0, 4);
+// Display randomized articles on page load
+async function displayRandomizedArticles() {
+  articles = await fetchArticleData();
+
+  // Randomize the articles array
+  const randomizedArticles = articles.sort(() => Math.random() - 0.5);
 
   cardContainer.innerHTML = ''; // Clear existing cards
 
-  filteredArticles.forEach(article => {
+  randomizedArticles.slice(0, 4).forEach(article => {
     createArticleCard(article);
   });
 }
 
 // Create article cards on page load
-displayFilteredArticles();
+displayRandomizedArticles();
 
 // Search input event listener
 searchInput.addEventListener('input', () => {
-  displayFilteredArticles(searchInput.value);
+  const query = searchInput.value.toLowerCase();
+
+  cardContainer.innerHTML = ''; // Clear existing cards
+
+  articles
+    .filter(article => article.title.toLowerCase().includes(query))
+    .slice(0, 4)
+    .forEach(article => {
+      createArticleCard(article);
+    });
 });
