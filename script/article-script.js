@@ -4,14 +4,16 @@ const searchResultsContainer = document.getElementById('searchResultsContainer')
 // Function to fetch article data from data.json
 async function fetchArticleData() {
   try {
-    const response = await fetch('../data.json');
+    const response = await fetch('data.json');
     const data = await response.json();
+    console.log('Fetched data:', data); // Add this line
     return data;
   } catch (error) {
     console.error('Error fetching article data:', error);
     return [];
   }
 }
+
 
 // Function to display search results as a dropdown
 function displaySearchResults(results) {
