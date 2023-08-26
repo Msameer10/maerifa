@@ -1,5 +1,5 @@
 const searchInputArticle = document.getElementById('searchInputArticle');
-const dropdown = document.getElementById('dropdown');
+const articleList = document.getElementById('articleList');
 
 // Function to fetch article data from data.json
 async function fetchArticleData() {
@@ -13,37 +13,53 @@ async function fetchArticleData() {
   }
 }
 
-// Function to populate the dropdown with article titles
-async function populateDropdown(query) {
+// Populate the datalist with article titles
+async function populateArticleList() {
   const articles = await fetchArticleData();
+  articleList.innerHTML = '';
 
-  // Filter articles based on query
-  const filteredArticles = articles.filter(article =>
-    article.title.toLowerCase().includes(query.toLowerCase())
-  );
-
-  // Clear existing dropdown options
-  dropdown.innerHTML = '';
-
-  // Create and append dropdown options
-  filteredArticles.forEach(article => {
+  articles.forEach(article => {
     const option = document.createElement('option');
-    option.value = article.url;
-    option.textContent = article.title;
-    dropdown.appendChild(option);
+    option.value = article.title;
+    articleList.appendChild(option);
   });
 }
 
+// Load the selected article's page
+function loadArticlePage(articleTitle) {
+  const articles = await fetchArticleData();
+  const selectedArticle = articles.find(article => article.title === articleTitle);
+  
+  if (selectedArticle) {
+    window.location.href = selectedArticle.url;
+  }
+}
+
+// Populate the datalist on page load
+populateArticleList();
+
 // Search input event listener
 searchInputArticle.addEventListener('input', () => {
-  const query = searchInputArticle.value;
-  populateDropdown(query);
+  const query = searchInputArticle.value.toLowerCase();
+  const matchingArticles = [];
+
+  fetchArticleData().then(articles => {
+    articles.forEach(article => {
+      if (article.title.toLowerCase().includes(query)) {
+        matchingArticles.push(article);
+      }
+    });
+
+    articleList.innerHTML = '';
+    matchingArticles.forEach(matchingArticle => {
+      const option = document.createElement('option');
+      option.value = matchingArticle.title;
+      articleList.appendChild(option);
+    });
+  });
 });
 
-// Dropdown change event listener
-dropdown.addEventListener('change', () => {
-  const selectedUrl = dropdown.value;
-  if (selectedUrl) {
-    window.location.href = selectedUrl; // Navigate to the selected article page
-  }
+// Event listener to handle selecting an article
+searchInputArticle.addEventListener('change', () => {
+  loadArticlePage(searchInputArticle.value);
 });
