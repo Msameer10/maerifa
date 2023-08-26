@@ -13,29 +13,24 @@ async function fetchArticleData() {
   }
 }
 
-// Function to display search suggestions
-function displaySearchSuggestions(suggestions) {
-  searchSuggestions.innerHTML = ''; // Clear previous suggestions
-  
-  if (suggestions.length === 0) {
-    searchSuggestions.style.display = 'none';
-    return;
-  }
-  
-  suggestions.forEach(article => {
-    const suggestion = document.createElement('div');
-    suggestion.className = 'suggestion';
-    suggestion.textContent = article.title;
-    
-    suggestion.addEventListener('click', () => {
-      window.location.href = article.url; // Navigate to the selected article
+// Function to display search results as a dropdown
+function displaySearchResults(results) {
+  searchResultsContainer.innerHTML = ''; // Clear existing results
+
+  results.forEach(article => {
+    const resultItem = document.createElement('div');
+    resultItem.className = 'search-result';
+    resultItem.textContent = article.title;
+
+    resultItem.addEventListener('click', () => {
+      const baseUrl = window.location.href.replace(/\/[^\/]*$/, ''); // Get the base URL of the current page
+      window.location.href = baseUrl + '/' + article.url; // Navigate to the selected article
     });
-    
-    searchSuggestions.appendChild(suggestion);
+
+    searchResultsContainer.appendChild(resultItem);
   });
-  
-  searchSuggestions.style.display = 'block';
 }
+
 
 // Search input event listener
 searchInput.addEventListener('input', async () => {
