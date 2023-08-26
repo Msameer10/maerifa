@@ -1,10 +1,10 @@
 const searchInput = document.getElementById('searchInput');
-const searchResultsContainer = document.getElementById('searchResultsContainer');
+const articleList = document.getElementById('articleList');
 
 // Function to fetch article data from data.json
 async function fetchArticleData() {
   try {
-    const response = await fetch('../data.json'); // Assuming data.json is in the main directory
+    const response = await fetch('../data.json'); // Change the path if needed
     const data = await response.json();
     return data;
   } catch (error) {
@@ -15,29 +15,39 @@ async function fetchArticleData() {
 
 // Function to display search results as a dropdown
 function displaySearchResults(results) {
-  searchResultsContainer.innerHTML = ''; // Clear existing results
+  articleList.innerHTML = ''; // Clear existing results
 
   results.forEach(article => {
-    const resultItem = document.createElement('div');
-    resultItem.className = 'search-result';
-    resultItem.textContent = article.title;
-    
-    resultItem.addEventListener('click', () => {
-      window.location.href = article.url; // Navigate to the selected article
-    });
-
-    searchResultsContainer.appendChild(resultItem);
+    const option = document.createElement('option');
+    option.value = article.title;
+    articleList.appendChild(option);
   });
 }
 
 // Search input event listener
-searchInput.addEventListener('input', () => {
+searchInput.addEventListener('input', async () => {
   const query = searchInput.value.toLowerCase();
 
-  fetchArticleData().then(articles => {
-    const searchResults = articles.filter(article =>
-      article.title.toLowerCase().includes(query)
-    );
-    displaySearchResults(searchResults);
-  });
+  const articles = await fetchArticleData();
+
+  const searchResults = articles.filter(article =>
+    article.title.toLowerCase().includes(query)
+  );
+
+  displaySearchResults(searchResults);
+});
+
+// Click event listener for suggestions
+articleList.addEventListener('input', async (event) => {
+  const selectedTitle = event.target.value;
+
+  const articles = await fetchArticleData();
+
+  const selectedArticle = articles.find(article =>
+    article.title.toLowerCase() === selectedTitle.toLowerCase()
+  );
+
+  if (selectedArticle) {
+    window.location.href = selectedArticle.url; // Navigate to the selected article
+  }
 });
