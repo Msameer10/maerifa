@@ -17,14 +17,23 @@ async function fetchArticleData() {
 
 // Function to display search results as a dropdown
 function displaySearchResults(results) {
+  console.log('Displaying search results:', results); // Add this line
+
   searchResultsContainer.innerHTML = ''; // Clear existing results
 
   results.forEach(article => {
-    const resultItem = document.createElement('option');
-    resultItem.value = article.title;
+    const resultItem = document.createElement('div');
+    resultItem.className = 'search-result';
+    resultItem.textContent = article.title;
+
+    resultItem.addEventListener('click', () => {
+      window.location.href = article.url; // Navigate to the selected article
+    });
+
     searchResultsContainer.appendChild(resultItem);
   });
 }
+
 
 // Search input event listener
 searchInput.addEventListener('input', () => {
