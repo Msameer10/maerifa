@@ -152,8 +152,42 @@ nav {
   object-fit: cover; /* Ensure images maintain aspect ratio */
 }
 
+/*      article search       */
+
+
+.search-container {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border: 1px solid #ccc;
+  display: none;
+}
+
+.suggestion {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.suggestion:hover {
+  background-color: #f2f2f2;
+}
+
+
+
+
+
 
 /*    articles    */
+
 
 .a-title{
   font-size: 30px;
@@ -164,6 +198,9 @@ nav {
 .a-para{}
 
 .a-end{}
+
+
+
 
 
 /* footer*/

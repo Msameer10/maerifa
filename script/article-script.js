@@ -1,12 +1,11 @@
 const searchInput = document.getElementById('searchInput');
-const searchResultsContainer = document.getElementById('searchResultsContainer');
+const searchSuggestions = document.getElementById('searchSuggestions');
 
 // Function to fetch article data from data.json
 async function fetchArticleData() {
   try {
-    const response = await fetch('../data.json');
+    const response = await fetch('../adata.json');
     const data = await response.json();
-    console.log('Fetched data:', data); // Add this line
     return data;
   } catch (error) {
     console.error('Error fetching article data:', error);
@@ -14,35 +13,43 @@ async function fetchArticleData() {
   }
 }
 
-
-// Function to display search results as a dropdown
-function displaySearchResults(results) {
-  console.log('Displaying search results:', results); // Add this line
-
-  searchResultsContainer.innerHTML = ''; // Clear existing results
-
-  results.forEach(article => {
-    const resultItem = document.createElement('div');
-    resultItem.className = 'search-result';
-    resultItem.textContent = article.title;
-
-    resultItem.addEventListener('click', () => {
+// Function to display search suggestions
+function displaySearchSuggestions(suggestions) {
+  searchSuggestions.innerHTML = ''; // Clear previous suggestions
+  
+  if (suggestions.length === 0) {
+    searchSuggestions.style.display = 'none';
+    return;
+  }
+  
+  suggestions.forEach(article => {
+    const suggestion = document.createElement('div');
+    suggestion.className = 'suggestion';
+    suggestion.textContent = article.title;
+    
+    suggestion.addEventListener('click', () => {
       window.location.href = article.url; // Navigate to the selected article
     });
-
-    searchResultsContainer.appendChild(resultItem);
+    
+    searchSuggestions.appendChild(suggestion);
   });
+  
+  searchSuggestions.style.display = 'block';
 }
 
-
 // Search input event listener
-searchInput.addEventListener('input', () => {
+searchInput.addEventListener('input', async () => {
   const query = searchInput.value.toLowerCase();
-
-  fetchArticleData().then(articles => {
-    const searchResults = articles.filter(article =>
-      article.title.toLowerCase().includes(query)
-    );
-    displaySearchResults(searchResults);
-  });
+  
+  if (query.trim() === '') {
+    searchSuggestions.style.display = 'none';
+    return;
+  }
+  
+  const articles = await fetchArticleData();
+  const matchingArticles = articles.filter(article =>
+    article.title.toLowerCase().includes(query)
+  );
+  
+  displaySearchSuggestions(matchingArticles);
 });
