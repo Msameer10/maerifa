@@ -155,7 +155,7 @@ nav {
 /*      article search       */
 
 
-#searchInput {
+#searchInputArticles {
   width: 70%; /* Adjust the width as needed */
   border-radius: 25px; /* Add border radius */
   padding: 10px 15px; /* Add padding for better appearance */
