@@ -63,9 +63,14 @@ function updateCardContent(item) {
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
 
-  const searchResults = headingsData.filter(item =>
-    item.heading.toLowerCase().includes(query)
-  );
-
-  displaySearchResults(searchResults);
+  if (query === '') {
+    // Clear the search results container if the search bar is empty
+    searchResultsContainer.innerHTML = '';
+  } else {
+    const searchResults = headingsData.filter(item =>
+      item.heading.toLowerCase().includes(query)
+    );
+    displaySearchResults(searchResults);
+  }
 });
+
