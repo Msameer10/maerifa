@@ -2,16 +2,17 @@ const searchInput = document.getElementById('searchInput');
 const searchResultsContainer = document.getElementById('searchResultsContainer');
 const cardContainer = document.getElementById('cardContainer');
 
-// Sample data for headings
-const headingsData = [
-  {
-    heading: "Heading 1",
-    definition: "This is the definition for Heading 1.",
-    extra: "Additional information for Heading 1.",
-    tag: "Tag 1"
-  },
-  // Add more data entries here
-];
+// Function to fetch headings data from headings.json
+async function fetchHeadingsData() {
+  try {
+    const response = await fetch('headings.json'); // Change the path to match the correct location
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching headings data:', error);
+    return [];
+  }
+}
 
 // Function to display search results as a dropdown
 function displaySearchResults(results) {
@@ -52,10 +53,12 @@ searchInput.addEventListener('input', () => {
     // Clear the search results container if the search bar is empty
     searchResultsContainer.innerHTML = '';
   } else {
-    const searchResults = headingsData.filter(item =>
-      item.heading.toLowerCase().includes(query)
-    );
-    displaySearchResults(searchResults);
+    fetchHeadingsData().then(headingsData => {
+      const searchResults = headingsData.filter(item =>
+        item.heading.toLowerCase().includes(query)
+      );
+      displaySearchResults(searchResults);
+    });
   }
 });
 
