@@ -155,10 +155,11 @@ nav {
 /*      article search       */
 
 
-.search-container {
-  position: relative;
-  width: 300px;
-  margin: 0 auto;
+#searchInput {
+  width: 70%; /* Adjust the width as needed */
+  border-radius: 25px; /* Add border radius */
+  padding: 10px 15px; /* Add padding for better appearance */
+  font-size: 16px; /* Adjust font size as needed */
 }
 
 .suggestions {
