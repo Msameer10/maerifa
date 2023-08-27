@@ -198,7 +198,28 @@ nav {
 .a-end{}
 
 
+/*     lexicon    */
 
+
+/* Style for search bar and results */
+.search-result {
+  cursor: pointer;
+  padding: 5px;
+}
+
+/* Style for card */
+.card {
+  width: 300px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+  
 
 
 /* footer*/
