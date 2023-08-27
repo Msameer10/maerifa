@@ -10,22 +10,22 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!-- Original CSS -->
-<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
   <title>Ma'rifa</title>
 </head>
-<body>
+<body onload="typeWriter()">
    <!-- Navigation Bar -->
 
 <nav class="d-none d-sm-none d-md-flex">
   <div class="logo">
-    <a href="../index.html">Ma<span>'rifa</span></a>
+    <a href="index.html">Ma<span>'rifa</span></a>
   </div>
   <div class="menu">
     <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../thelist.html">The List</a></li>
-      <li><a href="../lexicon.html">Lexicon</a></li>
-      <li><a href="../signup.html" class="signup">Sign Up</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="thelist.html">The List</a></li>
+      <li><a href="lexicon.html" class="active">Lexicon</a></li>
+      <li><a href="signup.html" class="signup">Sign Up</a></li>
     </ul>
   </div>
 </nav>
@@ -33,12 +33,12 @@
 
   <!-- Mobile Navigation Bar -->
 <div class="mtopnav d-md-none">
-  <a class="d-md-none" href="../index.html" id="mh1"><span>Ma</span><span class="text-dark">'rifa</span></a>
+  <a class="d-md-none" href="index.html" id="mh1"><span>Ma</span><span class="text-dark">'rifa</span></a>
   <div id="myLinks">
-    <a href="../index.html">Home</a>
-    <a href="../thelist.html">The List</a>
-    <a href="../lexicon.html">Lexicon</a>
-    <a href="../signup.html">Sign Up</a>
+    <a href="index.html">Home</a>
+    <a href="thelist.html">The List</a>
+    <a href="lexicon.html">Lexicon</a>
+    <a href="signup.html">Sign Up</a>
   </div>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
@@ -46,41 +46,10 @@
 </div>
 
   <!-- Content -->
-<div class="container mt-5 mb-5 pb-5">
-<main>
-
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Search articles">
-  <div id="searchSuggestions" class="suggestions"></div>
-</div>
-
-
-<script src="../script/article-script.js"></script>
-
-<article>
-    <h1 class="mb-4 a-title">Article Title</h1>
-    <p>This is the introduction of the article.</p>
-    
-    <div class="mb-4 a-image">
-        <img src="image.jpg" alt="Article Image" class="img-fluid rounded">
-        <span class="d-block mt-2 text-muted">Caption for the image.</span>
-    </div>
-    
-    <p class="a-para">Here's some more content in the article.</p>
-    
-    <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-    </ul>
-    
-    <p class="a-end">Conclusion of the article.</p>
-</article> 
-</main>
-</div>
-
+ 
 
   <!-- footer -->
+
 
 <div class="footer">
   <p class="mb-5 pb-5 ftrtxt"><span class="subtxt1">Ma</span><span class="subtxt2">'rifa</span><span class="subtxt3"> x </span><span class="subtxt4">Sami</span><span class="subtxt5">neon</span></p>
@@ -106,7 +75,6 @@ function myFunction() {
   }
 }
 </script>
-
 
 
 </body>
