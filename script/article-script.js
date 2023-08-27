@@ -1,4 +1,4 @@
-const searchInput = document.getElementById('searchInput');
+const searchInput = document.getElementById('searchInputArticles');
 const searchSuggestions = document.getElementById('searchSuggestions');
 
 // Function to fetch article data from data.json
