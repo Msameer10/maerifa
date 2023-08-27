@@ -10,6 +10,36 @@ const headingsData = [
     extra: "Additional information for Heading 1.",
     tag: "Tag 1"
   },
+  {
+    heading: "Heading 2",
+    definition: "This is the definition for Heading 1.",
+    extra: "Additional information for Heading 1.",
+    tag: "Tag 1"
+  },
+  {
+    heading: "Heading 3",
+    definition: "This is the definition for Heading 1.",
+    extra: "Additional information for Heading 1.",
+    tag: "Tag 1"
+  },
+  {
+    heading: "Heading 4",
+    definition: "This is the definition for Heading 1.",
+    extra: "Additional information for Heading 1.",
+    tag: "Tag 1"
+  },
+  {
+    heading: "Heading 5",
+    definition: "This is the definition for Heading 1.",
+    extra: "Additional information for Heading 1.",
+    tag: "Tag 1"
+  },
+  {
+    heading: "Heading 6",
+    definition: "This is the definition for Heading 1.",
+    extra: "Additional information for Heading 1.",
+    tag: "Tag 1"
+  },
   // Add more data entries here
 ];
 
