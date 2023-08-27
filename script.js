@@ -1,55 +1,71 @@
 const searchInput = document.getElementById('searchInput');
-const searchSuggestions = document.getElementById('searchSuggestions');
+const searchResultsContainer = document.getElementById('searchResultsContainer');
+const cardHeading = document.getElementById('cardHeading');
+const cardPara = document.getElementById('cardPara');
+const cardExtra = document.getElementById('cardExtra');
+const cardTag = document.getElementById('cardTag');
 
-// Function to fetch article data from data.json
-async function fetchArticleData() {
-  try {
-    const response = await fetch('adata.json');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Error fetching article data:', error);
-    return [];
+// Sample data
+const headingsData = [
+  {
+    heading: 'Heading 1',
+    para: 'Para for Heading 1',
+    extra: 'Extra for Heading 1',
+    tag: 'Tag for Heading 1'
+  },
+  {
+    heading: 'Heading 2',
+    para: 'Para for Heading 2',
+    extra: 'Extra for Heading 2',
+    tag: 'Tag for Heading 2'
+  },
+  {
+    heading: 'Heading 3',
+    para: 'Para for Heading 3',
+    extra: 'Extra for Heading 3',
+    tag: 'Tag for Heading 3'
+  },
+  {
+    heading: 'Heading 4',
+    para: 'Para for Heading 4',
+    extra: 'Extra for Heading 4',
+    tag: 'Tag for Heading 4'
   }
+  // Add more headings as needed
+];
+
+// Function to display search results as a list
+function displaySearchResults(results) {
+  searchResultsContainer.innerHTML = '';
+
+  results.forEach(item => {
+    const resultItem = document.createElement('div');
+    resultItem.textContent = item.heading;
+    resultItem.className = 'search-result';
+
+    resultItem.addEventListener('click', () => {
+      updateCardContent(item);
+    });
+
+    searchResultsContainer.appendChild(resultItem);
+  });
 }
 
-// Function to display search suggestions
-function displaySearchSuggestions(suggestions) {
-  searchSuggestions.innerHTML = ''; // Clear previous suggestions
-  
-  if (suggestions.length === 0) {
-    searchSuggestions.style.display = 'none';
-    return;
-  }
-  
-  suggestions.forEach(article => {
-    const suggestion = document.createElement('div');
-    suggestion.className = 'suggestion';
-    suggestion.textContent = article.title;
-    
-    suggestion.addEventListener('click', () => {
-      window.location.href = article.url; // Navigate to the selected article
-    });
-    
-    searchSuggestions.appendChild(suggestion);
-  });
-  
-  searchSuggestions.style.display = 'block';
+// Function to update card content
+function updateCardContent(item) {
+  cardHeading.textContent = item.heading;
+  cardPara.textContent = item.para;
+  cardExtra.textContent = item.extra;
+  cardTag.textContent = item.tag;
 }
 
 // Search input event listener
-searchInput.addEventListener('input', async () => {
+searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
-  
-  if (query.trim() === '') {
-    searchSuggestions.style.display = 'none';
-    return;
-  }
-  
-  const articles = await fetchArticleData();
-  const matchingArticles = articles.filter(article =>
-    article.title.toLowerCase().includes(query)
+
+  const searchResults = headingsData.filter(item =>
+    item.heading.toLowerCase().includes(query)
   );
-  
-  displaySearchSuggestions(matchingArticles);
+
+  displaySearchResults(searchResults);
 });
