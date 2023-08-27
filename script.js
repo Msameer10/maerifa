@@ -8,29 +8,17 @@ const cardTag = document.getElementById('cardTag');
 // Sample data
 const headingsData = [
   {
-    heading: 'Totem',
+    heading: 'Heading 1',
     para: 'Para for Heading 1',
     extra: 'Extra for Heading 1',
     tag: 'Tag for Heading 1'
   },
   {
-    heading: 'Trident',
+    heading: 'Heading 2',
     para: 'Para for Heading 2',
     extra: 'Extra for Heading 2',
     tag: 'Tag for Heading 2'
   },
-  {
-    heading: 'Temperature',
-    para: 'Para for Heading 3',
-    extra: 'Extra for Heading 3',
-    tag: 'Tag for Heading 3'
-  },
-  {
-    heading: 'Tantrum',
-    para: 'Para for Heading 4',
-    extra: 'Extra for Heading 4',
-    tag: 'Tag for Heading 4'
-  }
   // Add more headings as needed
 ];
 
@@ -63,14 +51,9 @@ function updateCardContent(item) {
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
 
-  if (query === '') {
-    // Clear the search results container if the search bar is empty
-    searchResultsContainer.innerHTML = '';
-  } else {
-    const searchResults = headingsData.filter(item =>
-      item.heading.toLowerCase().includes(query)
-    );
-    displaySearchResults(searchResults);
-  }
-});
+  const searchResults = headingsData.filter(item =>
+    item.heading.toLowerCase().includes(query)
+  );
 
+  displaySearchResults(searchResults);
+});
