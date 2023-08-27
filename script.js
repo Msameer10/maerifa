@@ -1,77 +1,62 @@
 const searchInput = document.getElementById('searchInput');
 const searchResultsContainer = document.getElementById('searchResultsContainer');
-const cardContainer = document.getElementById('cardContainer');
+const cardHeading = document.getElementById('cardHeading');
+const cardPara = document.getElementById('cardPara');
+const cardExtra = document.getElementById('cardExtra');
+const cardTag = document.getElementById('cardTag');
 
-// Sample data for headings
+// Sample data
 const headingsData = [
   {
-    heading: "Heading 1",
-    definition: "This is the definition for Heading 1.",
-    extra: "Additional information for Heading 1.",
-    tag: "Tag 1"
+    heading: 'Totem',
+    para: 'Para for Heading 1',
+    extra: 'Extra for Heading 1',
+    tag: 'Tag for Heading 1'
   },
   {
-    heading: "Heading 2",
-    definition: "This is the definition for Heading 1.",
-    extra: "Additional information for Heading 1.",
-    tag: "Tag 1"
+    heading: 'Trident',
+    para: 'Para for Heading 2',
+    extra: 'Extra for Heading 2',
+    tag: 'Tag for Heading 2'
   },
   {
-    heading: "Heading 3",
-    definition: "This is the definition for Heading 1.",
-    extra: "Additional information for Heading 1.",
-    tag: "Tag 1"
+    heading: 'Temperature',
+    para: 'Para for Heading 3',
+    extra: 'Extra for Heading 3',
+    tag: 'Tag for Heading 3'
   },
   {
-    heading: "Heading 4",
-    definition: "This is the definition for Heading 1.",
-    extra: "Additional information for Heading 1.",
-    tag: "Tag 1"
-  },
-  {
-    heading: "Heading 5",
-    definition: "This is the definition for Heading 1.",
-    extra: "Additional information for Heading 1.",
-    tag: "Tag 1"
-  },
-  {
-    heading: "Heading 6",
-    definition: "This is the definition for Heading 1.",
-    extra: "Additional information for Heading 1.",
-    tag: "Tag 1"
-  },
-  // Add more data entries here
+    heading: 'Tantrum',
+    para: 'Para for Heading 4',
+    extra: 'Extra for Heading 4',
+    tag: 'Tag for Heading 4'
+  }
+  // Add more headings as needed
 ];
 
-// Function to display search results as a dropdown
+// Function to display search results as a list
 function displaySearchResults(results) {
-  searchResultsContainer.innerHTML = ''; // Clear existing results
+  searchResultsContainer.innerHTML = '';
 
   results.forEach(item => {
     const resultItem = document.createElement('div');
-    resultItem.className = 'search-result';
     resultItem.textContent = item.heading;
+    resultItem.className = 'search-result';
 
     resultItem.addEventListener('click', () => {
-      displayCardDetails(item);
+      updateCardContent(item);
     });
 
     searchResultsContainer.appendChild(resultItem);
   });
 }
 
-// Function to display card details
-function displayCardDetails(item) {
-  cardContainer.innerHTML = `
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">${item.heading}</h5>
-        <p class="card-text">${item.definition}</p>
-        <p class="card-text">${item.extra}</p>
-        <p class="card-text">${item.tag}</p>
-      </div>
-    </div>
-  `;
+// Function to update card content
+function updateCardContent(item) {
+  cardHeading.textContent = item.heading;
+  cardPara.textContent = item.para;
+  cardExtra.textContent = item.extra;
+  cardTag.textContent = item.tag;
 }
 
 // Search input event listener
@@ -89,20 +74,3 @@ searchInput.addEventListener('input', () => {
   }
 });
 
-// Click event listener on the document to clear search results
-document.addEventListener('click', (event) => {
-  if (event.target !== searchInput) {
-    // Clear the search results container when clicking outside the search bar
-    searchResultsContainer.innerHTML = '';
-  }
-});
-
-// Display default card details on page load
-const defaultCard = {
-  heading: "Default Heading",
-  definition: "This is the default definition.",
-  extra: "No extra information available.",
-  tag: "Default Tag"
-};
-
-displayCardDetails(defaultCard);
