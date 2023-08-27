@@ -175,7 +175,7 @@ nav {
 .suggestion {
   padding: 10px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s;
 }
 
 .suggestion:hover {
