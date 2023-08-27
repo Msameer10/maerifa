@@ -1,62 +1,47 @@
 const searchInput = document.getElementById('searchInput');
 const searchResultsContainer = document.getElementById('searchResultsContainer');
-const cardHeading = document.getElementById('cardHeading');
-const cardPara = document.getElementById('cardPara');
-const cardExtra = document.getElementById('cardExtra');
-const cardTag = document.getElementById('cardTag');
+const cardContainer = document.getElementById('cardContainer');
 
-// Sample data
+// Sample data for headings
 const headingsData = [
   {
-    heading: 'Heading 1',
-    para: 'Para for Heading 1',
-    extra: 'Extra for Heading 1',
-    tag: 'Tag for Heading 1'
+    heading: "Heading 1",
+    definition: "This is the definition for Heading 1.",
+    extra: "Additional information for Heading 1.",
+    tag: "Tag 1"
   },
-  {
-    heading: 'Heading 2',
-    para: 'Para for Heading 2',
-    extra: 'Extra for Heading 2',
-    tag: 'Tag for Heading 2'
-  },
-  {
-    heading: 'Heading 3',
-    para: 'Para for Heading 3',
-    extra: 'Extra for Heading 3',
-    tag: 'Tag for Heading 3'
-  },
-  {
-    heading: 'Heading 4',
-    para: 'Para for Heading 4',
-    extra: 'Extra for Heading 4',
-    tag: 'Tag for Heading 4'
-  }
-  // Add more headings as needed
+  // Add more data entries here
 ];
 
-// Function to display search results as a list
+// Function to display search results as a dropdown
 function displaySearchResults(results) {
-  searchResultsContainer.innerHTML = '';
+  searchResultsContainer.innerHTML = ''; // Clear existing results
 
   results.forEach(item => {
     const resultItem = document.createElement('div');
-    resultItem.textContent = item.heading;
     resultItem.className = 'search-result';
+    resultItem.textContent = item.heading;
 
     resultItem.addEventListener('click', () => {
-      updateCardContent(item);
+      displayCardDetails(item);
     });
 
     searchResultsContainer.appendChild(resultItem);
   });
 }
 
-// Function to update card content
-function updateCardContent(item) {
-  cardHeading.textContent = item.heading;
-  cardPara.textContent = item.para;
-  cardExtra.textContent = item.extra;
-  cardTag.textContent = item.tag;
+// Function to display card details
+function displayCardDetails(item) {
+  cardContainer.innerHTML = `
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">${item.heading}</h5>
+        <p class="card-text">${item.definition}</p>
+        <p class="card-text">${item.extra}</p>
+        <p class="card-text">${item.tag}</p>
+      </div>
+    </div>
+  `;
 }
 
 // Search input event listener
@@ -74,3 +59,20 @@ searchInput.addEventListener('input', () => {
   }
 });
 
+// Click event listener on the document to clear search results
+document.addEventListener('click', (event) => {
+  if (event.target !== searchInput) {
+    // Clear the search results container when clicking outside the search bar
+    searchResultsContainer.innerHTML = '';
+  }
+});
+
+// Display default card details on page load
+const defaultCard = {
+  heading: "Default Heading",
+  definition: "This is the default definition.",
+  extra: "No extra information available.",
+  tag: "Default Tag"
+};
+
+displayCardDetails(defaultCard);
