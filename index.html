@@ -47,7 +47,10 @@
 
   <!-- Content -->
 
-<div id="banner" class="p-5 m-3 text-white rounded m-5 p-5 mx-auto">
+<p id="quoteText" class="typewriter"></p>
+
+
+<div id="banner" class="p-5 m-3 text-white m-5 p-5 mx-auto">
   <p><span>Ma</span>'rifa</p>
 </div>
 
@@ -56,6 +59,7 @@
 </div>
 
 
+1.0.6.5
 
   <!-- footer -->
 
@@ -82,6 +86,33 @@ function myFunction() {
     x.style.display = "block";
   }
 }
+</script>
+
+<!-- typewriter -->
+<script type="text/javascript">
+
+async function fetchQuotes() {
+  try {
+    const response = await fetch('quotes.json');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching quotes:', error);
+    return [];
+  }
+}
+
+async function displayRandomQuote() {
+  const quotes = await fetchQuotes();
+  const quoteTextElement = document.getElementById('quoteText');
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomIndex];
+  quoteTextElement.textContent = randomQuote;
+}
+
+// Call the function to display a random quote when the page loads
+displayRandomQuote();
+
 </script>
 
 </body>
