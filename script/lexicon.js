@@ -24,6 +24,11 @@ const headingsData = [
 
 // Function to display search results as a list
 function displaySearchResults(results) {
+  if (!results.length) {
+    searchResultsContainer.innerHTML = '';
+    return;
+  }
+
   searchResultsContainer.innerHTML = '';
 
   results.forEach(item => {
@@ -50,6 +55,11 @@ function updateCardContent(item) {
 // Search input event listener
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
+
+  if (!query.trim()) {
+    searchResultsContainer.innerHTML = ''; // Clear the search results container
+    return;
+  }
 
   const searchResults = headingsData.filter(item =>
     item.heading.toLowerCase().includes(query)
