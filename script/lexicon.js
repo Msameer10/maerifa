@@ -67,3 +67,11 @@ searchInput.addEventListener('input', () => {
 
   displaySearchResults(searchResults);
 });
+
+// Blur event listener for the search input
+searchInput.addEventListener('blur', () => {
+  // Delay clearing the search results to allow user interaction
+  setTimeout(() => {
+    searchResultsContainer.innerHTML = '';
+  }, 200);
+});
