@@ -4,7 +4,7 @@ const searchInput = document.getElementById('searchInput');
 // Function to fetch article data from data.json
 async function fetchArticleData() {
   try {
-    const response = await fetch('data.json');
+    const response = await fetch('../data.json');
     const data = await response.json();
     return data;
   } catch (error) {
