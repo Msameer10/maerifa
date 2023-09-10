@@ -1,52 +1,22 @@
 [
   {
-    "title": "FC Barcelona",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/473px-FC_Barcelona_%28crest%29.svg.png",
-    "url": "articles/barca.html"
+    "title": "Barca",
+    "url": "barca.html"
   },
   {
     "title": "Battle of Guadalete",
-    "imageUrl": "https://www.worldhistory.org/img/c/p/1200x627/11661.jpg",
-    "url": "articles/battle_guadalete.html"
-  },
-  {
-    "title": "1",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
-  },
-  {
-    "title": "2",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
-  },
-  {
-    "title": "3",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
-  },
-  {
-    "title": "4",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
-  },
-  {
-    "title": "5",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
-  }
-  {
-    "title": "Geographical and Cultural Regions of Historical Significance",
-    "imageUrl": "https://o.quizlet.com/kYQ1JH69LUPevs-P4nD45A.png",
-    "url": "articles/geo_areas.html"
-  },
-  {
-    "title": "The Islamic Conquest of Iberia",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/El_rey_Don_Rodrigo_arengando_a_sus_tropas_en_la_batalla_de_Guadalete_%28Museo_del_Prado%29.jpg",
-    "url": "articles/isl_iberia.html"
+    "url": "battle_guadalete.html"
   },
   {
     "title": "Art",
-    "imageUrl": "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg",
-    "url": "articles/art.html"
+    "url": "art.html"
+  },
+  {
+    "title": "Geographical and Cultural Regions of Historical Significance",
+    "url": "geo_areas.html"
+  },
+  {
+    "title": "The Islamic Conquest of Iberia",
+    "url": "isl_iberia.html"
   }
 ]

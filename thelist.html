@@ -11,10 +11,10 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!-- Original CSS -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
-  <title>Ma'rifa</title>
+<title>Ma'rifa</title>
 </head>
 <body>
-   <!-- Navigation Bar -->
+<!-- Navigation Bar -->
 
 <nav class="d-none d-sm-none d-md-flex">
   <div class="logo">
@@ -30,8 +30,7 @@
   </div>
 </nav>
 
-
-  <!-- Mobile Navigation Bar -->
+<!-- Mobile Navigation Bar -->
 <div class="mtopnav d-md-none">
   <a class="d-md-none" href="index.html" id="mh1"><span>Ma</span><span class="text-dark">'rifa</span></a>
   <div id="myLinks">
@@ -45,30 +44,31 @@
   </a>
 </div>
 
-  <!-- Content -->
- <!-- Search Bar -->
-
-
+<!-- Content -->
+<!-- Search Bar -->
 <div class="container mt-4">
-
-
-<div class="search-container mb-5 mt-3">
-  <input type="text" id="searchInput" placeholder="Search articles">
-  <div id="searchSuggestions" class="suggestions"></div>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control rounded-left" id="searchInput" placeholder="Search articles">
+        <div class="input-group-append">
+          <button class="btn btn-info rounded-right" id="searchButton" type="button">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="searchResults"></div>
 </div>
 
-<div class="container mt-4 mb-5">
+<!-- List of Random Articles -->
+<div class="container mt-4">
   <h2>The List:</h2>
-  <ul id="articleList"></ul>
+  <ul id="articleList">
+    <!-- Random articles will be generated here -->
+  </ul>
 </div>
 
-  
-</div>
-
-
-
-  <!-- footer -->
-
+<!-- footer -->
 <div class="footer">
   <p class="mb-5 pb-5 ftrtxt"><span class="subtxt1">Ma</span><span class="subtxt2">'rifa</span><span class="subtxt3"> x </span><span class="subtxt4">Sami</span><span class="subtxt5">neon</span></p>
   <div class="footer-links">
@@ -78,10 +78,7 @@
   <p>Copyright © 2023 <span id="cprtxt">Ma'rifa</span>. All rights reserved.</p>
 </div>
 
-
-
-
-  <!-- Scripts -->
+<!-- Scripts -->
 <!-- Mobile Menu -->
 <script>
 function myFunction() {
@@ -95,15 +92,13 @@ function myFunction() {
 </script>
 
 <!-- Search -->
-
 <script src="script/script.js"></script>
-
-<!-- list -->
 
 <!-- Include jQuery (you can also use plain JavaScript) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
+$(document).ready(function () {
   // Function to shuffle an array
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -112,24 +107,56 @@ function myFunction() {
     }
   }
 
-  $(document).ready(function () {
-    // Load the JSON data
-    $.getJSON('adata.json', function (data) {
-      // Shuffle the array to get random articles
-      shuffleArray(data);
+  // Function to perform the search
+  function performSearch(query) {
+    const resultsContainer = $('#searchResults');
+    resultsContainer.empty();
 
-      // Take the first 10 articles
-      const randomArticles = data.slice(0, 10);
+    // Filter articles based on the query
+    const searchResults = data.filter((article) =>
+      article.title.toLowerCase().includes(query.toLowerCase())
+    );
 
-      // Populate the article list
-      const articleList = $('#articleList');
-      randomArticles.forEach((article) => {
-        articleList.append(`<li><a href="${article.url}">${article.title}</a></li>`);
+    if (searchResults.length === 0) {
+      resultsContainer.html('<p>No results found.</p>');
+    } else {
+      searchResults.forEach((article) => {
+        resultsContainer.append(
+          `<p><a href="${article.url}">${article.title}</a></p>`
+        );
       });
+    }
+  }
+
+  // Handle the click event on the search button
+  $('#searchButton').click(function () {
+    const searchQuery = $('#searchInput').val();
+    performSearch(searchQuery);
+  });
+
+  // Handle Enter key press in the search input
+  $('#searchInput').keypress(function (event) {
+    if (event.which === 13) {
+      const searchQuery = $('#searchInput').val();
+      performSearch(searchQuery);
+    }
+  });
+
+  // Load the JSON data from an external file
+  $.getJSON('data.json', function (data) {
+    // Shuffle the array to get random articles
+    shuffleArray(data);
+
+    // Take the first 10 articles for the list
+    const randomArticles = data.slice(0, 10);
+
+    // Populate the article list
+    const articleList = $('#articleList');
+    randomArticles.forEach((article) => {
+      articleList.append(`<li><a href="${article.url}">${article.title}</a></li>`);
     });
   });
+});
 </script>
-
-
 </body>
 </html>
