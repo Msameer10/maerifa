@@ -50,16 +50,18 @@
 
 
 <div class="container mt-4">
-  <div class="row justify-content-center mb-4">
-    <div class="col-md-6">
-      <div class="input-group mb-3">
-        <input type="text" class="form-control rounded-left" id="searchInput" placeholder="Search articles">
-        <div class="input-group-append">
-        <button class="btn btn-info rounded-right" id="searchButton" type="button">Search</button>
-        </div>
-      </div>
-    </div>
-  </div>
+
+
+<div class="search-container mb-5 mt-3">
+  <input type="text" id="searchInput" placeholder="Search articles">
+  <div id="searchSuggestions" class="suggestions"></div>
+</div>
+
+<div class="container mt-4 mb-5">
+  <h2>The List:</h2>
+  <ul id="articleList"></ul>
+</div>
+
   
 </div>
 
@@ -95,6 +97,39 @@ function myFunction() {
 <!-- Search -->
 
 <script src="script/script.js"></script>
+
+<!-- list -->
+
+<!-- Include jQuery (you can also use plain JavaScript) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  // Function to shuffle an array
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  $(document).ready(function () {
+    // Load the JSON data
+    $.getJSON('adata.json', function (data) {
+      // Shuffle the array to get random articles
+      shuffleArray(data);
+
+      // Take the first 10 articles
+      const randomArticles = data.slice(0, 10);
+
+      // Populate the article list
+      const articleList = $('#articleList');
+      randomArticles.forEach((article) => {
+        articleList.append(`<li><a href="${article.url}">${article.title}</a></li>`);
+      });
+    });
+  });
+</script>
+
 
 </body>
 </html>
