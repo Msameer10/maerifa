@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!-- Original CSS -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
+
 <title>Ma'rifa</title>
 </head>
 <body>
@@ -46,7 +47,7 @@
 
 <!-- Content -->
 <!-- Search Bar -->
-<div class="container mt-4">
+<div class="container mt-4 mb-3">
   <div class="row justify-content-center mb-4">
     <div class="col-md-6">
       <div class="input-group mb-3">
@@ -55,13 +56,15 @@
           <button class="btn btn-info rounded-right" id="searchButton" type="button">Search</button>
         </div>
       </div>
+      <!-- Suggestions container -->
+      <div id="liveSuggestions"></div>
     </div>
   </div>
   <div id="searchResults"></div>
 </div>
 
 <!-- List of Random Articles -->
-<div class="container mt-4">
+<div class="container mt-4 mb-5">
   <h2>The List:</h2>
   <ul id="articleList">
     <!-- Random articles will be generated here -->
@@ -107,26 +110,32 @@ $(document).ready(function () {
     }
   }
 
-  // Function to perform the search
-  function performSearch(query) {
-    const resultsContainer = $('#searchResults');
-    resultsContainer.empty();
+  // Function to update live suggestions based on user input
+  function updateSuggestions(query) {
+    const suggestionsContainer = $('#liveSuggestions');
+    suggestionsContainer.empty();
 
     // Filter articles based on the query
-    const searchResults = data.filter((article) =>
+    const matchingArticles = data.filter((article) =>
       article.title.toLowerCase().includes(query.toLowerCase())
     );
 
-    if (searchResults.length === 0) {
-      resultsContainer.html('<p>No results found.</p>');
+    if (matchingArticles.length === 0) {
+      suggestionsContainer.html('<p>No suggestions found.</p>');
     } else {
-      searchResults.forEach((article) => {
-        resultsContainer.append(
+      matchingArticles.forEach((article) => {
+        suggestionsContainer.append(
           `<p><a href="${article.url}">${article.title}</a></p>`
         );
       });
     }
   }
+
+  // Handle the input event on the search input
+  $('#searchInput').on('input', function () {
+    const searchQuery = $(this).val();
+    updateSuggestions(searchQuery);
+  });
 
   // Handle the click event on the search button
   $('#searchButton').click(function () {
