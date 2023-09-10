@@ -5,21 +5,6 @@
     "url": "articles/barca.html"
   },
   {
-    "title": "Geographical and Cultural Regions of Historical Significance",
-    "imageUrl": "https://o.quizlet.com/kYQ1JH69LUPevs-P4nD45A.png",
-    "url": "articles/geo_areas.html"
-  },
-  {
-    "title": "Phantom",
-    "imageUrl": "article2.jpg",
-    "url": "articles/article2.html"
-  },
-  {
-    "title": "Art",
-    "imageUrl": "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg",
-    "url": "articles/art.html"
-  },
-  {
     "title": "Barista",
     "imageUrl": "article2.jpg",
     "url": "articles/article2.html"
@@ -48,5 +33,20 @@
     "title": "5",
     "imageUrl": "article2.jpg",
     "url": "articles/article2.html"
+  }
+  {
+    "title": "Geographical and Cultural Regions of Historical Significance",
+    "imageUrl": "https://o.quizlet.com/kYQ1JH69LUPevs-P4nD45A.png",
+    "url": "articles/geo_areas.html"
+  },
+  {
+    "title": "The Islamic Conquest of Iberia",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/El_rey_Don_Rodrigo_arengando_a_sus_tropas_en_la_batalla_de_Guadalete_%28Museo_del_Prado%29.jpg",
+    "url": "articles/isl_iberia.html"
+  },
+  {
+    "title": "Art",
+    "imageUrl": "https://cdn.britannica.com/78/43678-050-F4DC8D93/Starry-Night-canvas-Vincent-van-Gogh-New-1889.jpg",
+    "url": "articles/art.html"
   }
 ]
