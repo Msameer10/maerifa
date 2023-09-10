@@ -1,22 +1,22 @@
 [
   {
     "title": "Barca",
-    "url": "barca.html"
+    "url": "articles/barca.html"
   },
   {
     "title": "Battle of Guadalete",
-    "url": "battle_guadalete.html"
+    "url": "articles/battle_guadalete.html"
   },
   {
     "title": "Art",
-    "url": "art.html"
+    "url": "articles/art.html"
   },
   {
     "title": "Geographical and Cultural Regions of Historical Significance",
-    "url": "geo_areas.html"
+    "url": "articles/geo_areas.html"
   },
   {
     "title": "The Islamic Conquest of Iberia",
-    "url": "isl_iberia.html"
+    "url": "articles/isl_iberia.html"
   }
 ]
