@@ -159,9 +159,8 @@ nav {
 /*    the list    */
 
 #list_heading{
-  font-family: Yesteryear, Tangerine;
+  font-family: Yesteryear;
   font-size: 7em;
-  font-weight: bold;
 }
 
 /* Add the CSS styles for live suggestions here */
