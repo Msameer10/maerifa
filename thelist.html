@@ -111,11 +111,20 @@
 
 <!-- List of Random Articles -->
 <div class="container mt-4 mb-5">
-  <h3 class="mb-5">The List:</h3>
-  <div class="row" id="articleList">
-    <!-- Random articles will be generated here -->
-  </div>
+  <h3>The List:</h3>
+  <table class="table table-bordered" id="articleList">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Random articles will be generated here -->
+    </tbody>
+  </table>
 </div>
+
 
 
 <!-- footer -->
@@ -160,30 +169,34 @@ document.addEventListener('DOMContentLoaded', function () {
       // Shuffle the array to get random articles
       shuffleArray(data);
 
-      // Select the article list container (the row)
-      const articleList = document.getElementById('articleList');
+      // Select the article list container (the table body)
+      const articleList = document.querySelector('#articleList tbody');
 
       // Iterate through the random articles
       data.slice(0, 10).forEach((article) => {
-        // Create a cell-like element for each article
-        const articleCell = document.createElement('div');
-        articleCell.classList.add('col-md-4', 'mb-3'); // Adjust the grid column size as needed
+        // Create a new table row
+        const tableRow = document.createElement('tr');
 
-        // Create a link for the article
+        // Create a table data cell for the article title
+        const titleCell = document.createElement('td');
+        titleCell.textContent = article.title;
+
+        // Create a table data cell for the article link
+        const linkCell = document.createElement('td');
         const articleLink = document.createElement('a');
         articleLink.href = article.url;
-        articleLink.textContent = article.title;
-        articleLink.classList.add('btn', 'btn-info', 'btn-block'); // Style the link as a button
+        articleLink.textContent = 'Read Article';
+        linkCell.appendChild(articleLink);
 
-        // Append the link to the article cell
-        articleCell.appendChild(articleLink);
+        // Append cells to the table row
+        tableRow.appendChild(titleCell);
+        tableRow.appendChild(linkCell);
 
-        // Append the article cell to the row
-        articleList.appendChild(articleCell);
+        // Append the table row to the table body
+        articleList.appendChild(tableRow);
       });
     });
 });
-
 
 
 </script>
