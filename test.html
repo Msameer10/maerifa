@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title>Search Test</title>
-
-<style type="text/css">
-  
-/* Style for search bar and results */
-.search-result {
-  cursor: pointer;
-  padding: 5px;
-}
-
-/* Style for card */
-.card {
-  width: 300px;
-  margin: 20px auto;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-}
-
-.card-body {
-  padding: 15px;
-}
-
-  
-</style>
-
-
+  <!-- Your meta tags, stylesheets, and other head content here -->
 </head>
 <body>
+  <!-- Navigation and other content here -->
 
-<div class="container mt-4">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="searchInput" placeholder="Search headings">
-      <div id="searchResultsContainer"></div>
+  <!-- Search Bar -->
+  <div class="container mt-4">
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" id="searchInput" placeholder="Search articles">
+          <div class="input-group-append">
+            <button class="btn btn-info" id="searchButton" type="button">Search</button>
+          </div>
+        </div>
+      </div>
     </div>
+    <!-- Suggestions container -->
+    <div id="liveSuggestions"></div>
   </div>
-</div>
 
-<div class="container mt-4">
-  <div class="card">
-    <div class="card-body">
-      <h3 id="cardHeading">Default Heading</h3>
-      <p id="cardPara">Default Para</p>
-      <p id="cardExtra">Default Extra</p>
-      <span id="cardTag">Default Tag</span>
-    </div>
-  </div>
-</div>
-
-
-
-
-  <script src="script.js"></script>
+  <!-- Other content and scripts here -->
 </body>
+<script>
+  // Function to update live suggestions based on user input
+  function updateSuggestions(query) {
+    const suggestionsContainer = document.getElementById('liveSuggestions');
+    suggestionsContainer.innerHTML = '';
+
+    // Fetch data from external JSON file
+    fetch('data.json')
+      .then((response) => response.json())
+      .then((data) => {
+        // Filter articles based on the query
+        const matchingArticles = data.filter((article) =>
+          article.title.toLowerCase().includes(query.toLowerCase())
+        );
+
+        if (matchingArticles.length === 0) {
+          suggestionsContainer.innerHTML = '<p>No suggestions found.</p>';
+        } else {
+          matchingArticles.forEach((article) => {
+            const suggestionItem = document.createElement('p');
+            suggestionItem.innerHTML = `<a href="${article.url}">${article.title}</a>`;
+            suggestionsContainer.appendChild(suggestionItem);
+          });
+        }
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }
+
+  // Handle the input event on the search input
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', function () {
+    const searchQuery = this.value;
+    updateSuggestions(searchQuery);
+  });
+
+  // Handle the click event on the search button
+  const searchButton = document.getElementById('searchButton');
+  searchButton.addEventListener('click', function () {
+    const searchQuery = searchInput.value;
+    // Perform search here (you can add this functionality)
+  });
+</script>
+
+
 </html>
