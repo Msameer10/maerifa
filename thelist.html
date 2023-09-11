@@ -112,10 +112,11 @@
 <!-- List of Random Articles -->
 <div class="container mt-4 mb-5">
   <h3>The List:</h3>
-  <ul id="articleList" class="list-group">
+  <div class="row" id="articleList">
     <!-- Random articles will be generated here -->
-  </ul>
+  </div>
 </div>
+
 
 <!-- footer -->
 <div class="footer">
@@ -159,21 +160,30 @@ document.addEventListener('DOMContentLoaded', function () {
       // Shuffle the array to get random articles
       shuffleArray(data);
 
-      // Take the first 10 articles for the list
-      const randomArticles = data.slice(0, 10);
-
-      // Populate the article list
+      // Select the article list container (the row)
       const articleList = document.getElementById('articleList');
-      randomArticles.forEach((article) => {
-        const listItem = document.createElement('li');
+
+      // Iterate through the random articles
+      data.slice(0, 10).forEach((article) => {
+        // Create a cell-like element for each article
+        const articleCell = document.createElement('div');
+        articleCell.classList.add('col-md-4', 'mb-3'); // Adjust the grid column size as needed
+
+        // Create a link for the article
         const articleLink = document.createElement('a');
         articleLink.href = article.url;
         articleLink.textContent = article.title;
-        listItem.appendChild(articleLink);
-        articleList.appendChild(listItem);
+        articleLink.classList.add('btn', 'btn-info', 'btn-block'); // Style the link as a button
+
+        // Append the link to the article cell
+        articleCell.appendChild(articleLink);
+
+        // Append the article cell to the row
+        articleList.appendChild(articleCell);
       });
     });
 });
+
 
 
 </script>
