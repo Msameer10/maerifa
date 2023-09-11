@@ -116,7 +116,6 @@
     <thead>
       <tr>
         <th>Title</th>
-        <th>Link</th>
       </tr>
     </thead>
     <tbody>
@@ -124,6 +123,7 @@
     </tbody>
   </table>
 </div>
+
 
 
 
@@ -181,16 +181,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const titleCell = document.createElement('td');
         titleCell.textContent = article.title;
 
-        // Create a table data cell for the article link
-        const linkCell = document.createElement('td');
-        const articleLink = document.createElement('a');
-        articleLink.href = article.url;
-        articleLink.textContent = 'Read Article';
-        linkCell.appendChild(articleLink);
-
-        // Append cells to the table row
+        // Append the title cell to the table row
         tableRow.appendChild(titleCell);
-        tableRow.appendChild(linkCell);
 
         // Append the table row to the table body
         articleList.appendChild(tableRow);
