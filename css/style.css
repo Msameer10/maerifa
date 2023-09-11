@@ -194,6 +194,7 @@ nav {
   overflow-y: auto;
   width: 100%;
   z-index: 1;
+  text-decoration: none;
 }
 
 #liveSuggestions p {
