@@ -179,7 +179,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Create a table data cell for the article title
         const titleCell = document.createElement('td');
-        titleCell.textContent = article.title;
+        const articleLink = document.createElement('a');
+        articleLink.textContent = article.title;
+        articleLink.style.cursor = 'pointer'; // Set cursor to pointer for indicating clickable
+        articleLink.onclick = function () {
+          window.location.href = article.url; // Navigate to the article's URL on click
+        };
+        titleCell.appendChild(articleLink);
 
         // Append the title cell to the table row
         tableRow.appendChild(titleCell);
