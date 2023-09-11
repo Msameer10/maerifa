@@ -80,14 +80,13 @@
 
   <!-- footer -->
 
-
 <div class="footer">
   <p class="mb-5 pb-5 ftrtxt"><span class="subtxt1">Ma</span><span class="subtxt2">'rifa</span><span class="subtxt3"> x </span><span class="subtxt4">Sami</span><span class="subtxt5">neon</span></p>
   <div class="footer-links">
     <a href="tos.html" target="_blank">Terms of Service</a>
     <a href="policy.html" target="_blank">Privacy Policy</a>
   </div>
-  <p>Copyright © 2023 <span id="cprtxt">Ma'rifa</span>. All rights reserved.</p>
+  <p>Copyright © <span id="cprtxt" style="font-family: Arial, sans-serif;"></span><span id="cprtxt"> Ma'rifa</span>. All rights reserved.</p>
 </div>
 
 
@@ -104,6 +103,17 @@ function myFunction() {
     x.style.display = "block";
   }
 }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentYear = new Date().getFullYear();
+    const copyrightYearElement = document.getElementById("cprtxt");
+    
+    if (copyrightYearElement) {
+      copyrightYearElement.textContent = currentYear;
+    }
+  });
 </script>
 
 

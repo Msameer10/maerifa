@@ -130,7 +130,7 @@
     <a href="tos.html" target="_blank">Terms of Service</a>
     <a href="policy.html" target="_blank">Privacy Policy</a>
   </div>
-  <p>Copyright © 2023 <span id="cprtxt">Ma'rifa</span>. All rights reserved.</p>
+  <p>Copyright © <span id="cprtxt" style="font-family: Arial, sans-serif;"></span><span id="cprtxt"> Ma'rifa</span>. All rights reserved.</p>
 </div>
 
 
@@ -149,6 +149,16 @@ function myFunction() {
 }
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentYear = new Date().getFullYear();
+    const copyrightYearElement = document.getElementById("cprtxt");
+    
+    if (copyrightYearElement) {
+      copyrightYearElement.textContent = currentYear;
+    }
+  });
+</script>
 
 
 </body>
