@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Lugrasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Tangerine&display=swap');
 
 
 #mh1{
@@ -123,33 +124,6 @@ nav {
 
 /*  index   */
 
-/*typewriter*/
-
-.typewriter {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: typewriter 4s steps(40) 1s 1 normal both, blinkTextCursor 500ms steps(40) infinite;
-}
-
-@keyframes typewriter {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: rgba(255, 255, 255, 0.75);
-  }
-  to {
-    border-right-color: transparent;
-  }
-}
-
-
 /*banner*/
 
 #banner {
@@ -183,7 +157,11 @@ nav {
 
 /*    the list    */
 
-
+#list_heading{
+  font-family: Tangerine;
+  font-size: 4em;
+  font-weight: bold;
+}
 
 /* Add the CSS styles for live suggestions here */
 #liveSuggestions {
