@@ -95,13 +95,9 @@ function myFunction() {
 </script>
 
 <!-- Search -->
-<script src="script/script.js"></script>
-
-<!-- Include jQuery (you can also use plain JavaScript) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
   // Function to shuffle an array
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -112,8 +108,8 @@ $(document).ready(function () {
 
   // Function to update live suggestions based on user input
   function updateSuggestions(query) {
-    const suggestionsContainer = $('#liveSuggestions');
-    suggestionsContainer.empty();
+    const suggestionsContainer = document.getElementById('liveSuggestions');
+    suggestionsContainer.innerHTML = '';
 
     // Filter articles based on the query
     const matchingArticles = data.filter((article) =>
@@ -121,51 +117,64 @@ $(document).ready(function () {
     );
 
     if (matchingArticles.length === 0) {
-      suggestionsContainer.html('<p>No suggestions found.</p>');
+      suggestionsContainer.innerHTML = '<p>No suggestions found.</p>';
     } else {
       matchingArticles.forEach((article) => {
-        suggestionsContainer.append(
-          `<p><a href="${article.url}">${article.title}</a></p>`
-        );
+        const suggestionItem = document.createElement('p');
+        const suggestionLink = document.createElement('a');
+        suggestionLink.href = article.url;
+        suggestionLink.textContent = article.title;
+        suggestionItem.appendChild(suggestionLink);
+        suggestionsContainer.appendChild(suggestionItem);
       });
     }
   }
 
   // Handle the input event on the search input
-  $('#searchInput').on('input', function () {
-    const searchQuery = $(this).val();
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', function () {
+    const searchQuery = this.value;
     updateSuggestions(searchQuery);
   });
 
   // Handle the click event on the search button
-  $('#searchButton').click(function () {
-    const searchQuery = $('#searchInput').val();
+  const searchButton = document.getElementById('searchButton');
+  searchButton.addEventListener('click', function () {
+    const searchQuery = searchInput.value;
     performSearch(searchQuery);
   });
 
   // Handle Enter key press in the search input
-  $('#searchInput').keypress(function (event) {
+  searchInput.addEventListener('keypress', function (event) {
     if (event.which === 13) {
-      const searchQuery = $('#searchInput').val();
+      const searchQuery = searchInput.value;
       performSearch(searchQuery);
     }
   });
 
   // Load the JSON data from an external file
-  $.getJSON('data.json', function (data) {
-    // Shuffle the array to get random articles
-    shuffleArray(data);
+  fetch('data.json')
+    .then((response) => response.json())
+    .then((data) => {
+      // Shuffle the array to get random articles
+      shuffleArray(data);
 
-    // Take the first 10 articles for the list
-    const randomArticles = data.slice(0, 10);
+      // Take the first 10 articles for the list
+      const randomArticles = data.slice(0, 10);
 
-    // Populate the article list
-    const articleList = $('#articleList');
-    randomArticles.forEach((article) => {
-      articleList.append(`<li><a href="${article.url}">${article.title}</a></li>`);
+      // Populate the article list
+      const articleList = document.getElementById('articleList');
+      randomArticles.forEach((article) => {
+        const listItem = document.createElement('li');
+        const articleLink = document.createElement('a');
+        articleLink.href = article.url;
+        articleLink.textContent = article.title;
+        listItem.appendChild(articleLink);
+        articleList.appendChild(listItem);
+      });
     });
-  });
 });
+
 </script>
 </body>
 </html>
