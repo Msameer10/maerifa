@@ -85,24 +85,25 @@
   font-size: 1.8rem;
   color: #34495E;
   margin-bottom: 10px;
-  font-family: 'Quintessential';
+  font-family: 'Roboto Mono';
   font-weight: bold;
+  letter-spacing: -0.08rem;
 }
 
 #cardExtra {
   font-size: 1.6rem;
   color: #515A5A;
   margin-bottom: 10px;
-  font-family: 'Moon Dance';
+  font-family: 'Quintessential';
   font-weight: bold;
 }
 
 #cardTag {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 1rem;
   background-color: #007bff;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
-  font-family: 'Roboto Mono';
+  font-family: 'Monospace';
 }
