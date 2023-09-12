@@ -14,6 +14,252 @@ const headingsData = [
     tag: ['#Apocalypse', '#End Times', '#Eschatology']
 },
 {
+    heading: 'Reparation',
+    para: 'Reparation refers to the act of making amends, compensating, or providing restitution for harm, damage, or wrongdoing. Reparations can take various forms, including financial compensation, apologies, or efforts to rectify historical injustices.',
+    extra: 'Reparation is often discussed in the context of addressing historical injustices, such as slavery, colonization, and human rights abuses. It aims to achieve justice and reconciliation.',
+    tag: ['#Compensation', '#Justice', '#Restitution']
+},
+{
+    heading: 'Ration',
+    para: 'A ration is a specific portion or allowance of food, supplies, or resources allocated to individuals or groups, often in a controlled or limited manner. Rationing is commonly employed during times of scarcity, emergencies, or in military contexts.',
+    extra: 'Rationing aims to ensure equitable distribution and prevent hoarding of essential goods. It has been used in wartime, economic crises, and disaster relief efforts.',
+    tag: ['#Allocation', '#Distribution', '#Scarcity']
+},
+{
+    heading: 'Reservoir',
+    para: 'A reservoir is a man-made or natural storage area for water, typically formed by constructing dams across rivers or streams. Reservoirs are used to store and manage water for various purposes, including drinking water supply, irrigation, and hydroelectric power generation.',
+    extra: 'Reservoirs play a crucial role in water resource management, providing a reliable source of freshwater for communities and industries. They can also have ecological and recreational value.',
+    tag: ['#WaterStorage', '#ResourceManagement', '#Hydroelectricity']
+},
+{
+    heading: 'Fort',
+    para: 'A fort, short for fortress, is a fortified military structure or building designed to defend against attacks and provide protection to its occupants. Forts have been used throughout history for strategic defense.',
+    extra: 'Fortifications can vary in size and complexity, from small outposts to massive citadels. They often include walls, towers, and defensive features.',
+    tag: ['#Military', '#Defense', '#Fortification']
+},
+{
+    heading: 'Starve',
+    para: 'To starve means to suffer from lack of food and proper nourishment, leading to extreme hunger and malnutrition. It is a condition that can have severe physical and emotional effects on individuals.',
+    extra: 'Starvation is a critical global issue, and efforts to combat it include food aid, poverty alleviation, and improved access to nutrition. It is a humanitarian concern that requires attention and action.',
+    tag: ['#Hunger', '#Malnutrition', '#Humanitarian']
+},
+{
+    heading: "Century",
+    para: "A century is a period of 100 years. It is commonly used as a unit of time to measure historical events, eras, and the passage of time. Centuries are often designated by ordinal numbers, such as the 20th century.",
+    extra: "The division of history into centuries helps organize and study different time periods and their cultural, technological, and social developments.",
+    tag: ["#Time", "#History", "#Era"]
+},
+{
+    heading: "Mystery",
+    para: "A mystery refers to something that is difficult to understand, explain, or solve. It often involves enigmatic or unexplained events, phenomena, or circumstances that arouse curiosity and intrigue.",
+    extra: "Mysteries are a common theme in literature, detective stories, and the realm of the unknown. They can spark the human desire to explore and uncover hidden truths.",
+    tag: ["#Enigma", "#Intrigue", "#Curiosity"]
+},
+{
+    heading: "Flay",
+    para: "To flay means to strip the skin from a person or animal, typically as a form of punishment, torture, or to prepare the body for various purposes. Flaying has been practiced in various cultures throughout history.",
+    extra: "Flaying is often associated with brutality and cruelty and has been depicted in art, mythology, and historical accounts. It serves different symbolic and practical functions in different contexts.",
+    tag: ["#Punishment", "#Torture", "#Cultural Practices"]
+},
+{
+    heading: "Magic",
+    para: "Magic is the practice of using supernatural or mystical forces to influence events, outcomes, or perceptions. It is often associated with rituals, spells, and the manipulation of energy or elements.",
+    extra: "Magic has a long history and is found in various forms across cultures and traditions. It can be used for entertainment, religious ceremonies, healing, and other purposes.",
+    tag: ["#Supernatural", "#Rituals", "#Mysticism"]
+},
+{
+    heading: "Botanical",
+    para: "Botanical relates to the study of plants, their biology, classification, and ecology. It encompasses various scientific disciplines focused on plant life, including botany.",
+    extra: "Botanical research contributes to our understanding of plant diversity, conservation, and their role in ecosystems. It has practical applications in agriculture, medicine, and environmental science.",
+    tag: ["#Plants", "#Science", "#Biology"]
+},
+{
+    heading: "Botany",
+    para: "Botany is a branch of biology that focuses on the scientific study of plants, including their classification, structure, physiology, and interactions with the environment.",
+    extra: "Botany plays a critical role in understanding plant life and its significance to human and ecological systems. It has applications in agriculture, horticulture, pharmacology, and more.",
+    tag: ["#Science", "#Plants", "#Biology"]
+},
+{
+    heading: "Library",
+    para: "A library is a collection of books, documents, and other resources stored for reading, research, and reference purposes. Libraries are often public or academic institutions that provide access to knowledge and information.",
+    extra: "Libraries have been essential centers of learning and culture throughout history. In the digital age, they have evolved to include digital resources and services.",
+    tag: ["#Books", "#Knowledge", "#Learning"]
+},
+{
+    heading: "Army",
+    para: "An army is a large organized military force typically trained and equipped for warfare. Armies are key components of a country's defense and security infrastructure.",
+    extra: "The size, capabilities, and organization of armies vary between nations, and they play a crucial role in national defense, peacekeeping missions, and disaster response.",
+    tag: ["#Military", "#Defense", "#Warfare"]
+},
+{
+    heading: "Maritime",
+    para: "Maritime refers to anything related to the sea, oceans, or navigation on water. It encompasses activities such as shipping, fishing, trade, and exploration conducted on or near bodies of water.",
+    extra: "Maritime industries are vital for global trade and transportation. Understanding maritime law and navigation is essential for safe and efficient sea operations.",
+    tag: ["#Sea", "#Navigation", "#Trade"]
+},
+{
+    heading: "Sea",
+    para: "The sea is a large body of saltwater that covers much of the Earth's surface. It plays a fundamental role in the planet's climate, ecosystems, and human activities, including transportation and trade.",
+    extra: "Seas are home to diverse marine life and serve as a source of food, recreation, and inspiration. They also pose challenges such as pollution and conservation.",
+    tag: ["#Ocean", "#Water", "#Ecosystem"]
+},
+{
+    heading: "Cargo",
+    para: "Cargo refers to goods, products, or materials transported by ships, aircraft, trucks, or other means of transportation. Cargo can include a wide range of items, from raw materials to finished products.",
+    extra: "The efficient handling and transportation of cargo are crucial for global trade and the economy. Cargo logistics involve processes such as loading, unloading, and warehousing.",
+    tag: ["#Goods", "#Transportation", "#Logistics"]
+},
+{
+    heading: "Goods",
+    para: "Goods are tangible products or commodities that can be bought, sold, or traded. They are typically manufactured or produced for consumption, use, or resale.",
+    extra: "Goods encompass a wide range of items, from everyday consumer products to industrial machinery. They are a fundamental part of economic systems and trade.",
+    tag: ["#Products", "#Commerce", "#Trade"]
+},
+{
+    heading: "Sail",
+    para: "To sail means to navigate a watercraft, such as a sailboat, by harnessing the wind's power using sails. Sailing is a popular recreational activity and an ancient method of transportation and exploration.",
+    extra: "Sailing involves a combination of skills, including sail handling, navigation, and understanding wind patterns. It has a rich history and continues to be a beloved pastime.",
+    tag: ["#Boating", "#Navigation", "#Recreation"]
+},
+{
+    heading: "Oar",
+    para: "An oar is a long pole with a flat blade used for rowing or propelling a boat through the water. Oars are essential tools for manual navigation and propulsion of watercraft.",
+    extra: "Rowing with oars requires physical effort and coordination. Oars are commonly used in rowboats, canoes, and other small watercraft.",
+    tag: ["#Rowing", "#Boating", "#Watercraft"]
+},
+{
+    heading: "Skeleton",
+    para: "A skeleton is the internal framework of bones that provides structure, support, and protection to the bodies of vertebrate animals, including humans. It also serves as an anchor for muscles and tissues.",
+    extra: "The study of skeletons, known as osteology, contributes to our understanding of anatomy, evolution, and forensics. Skeletons are essential for mobility and bodily functions.",
+    tag: ["#Anatomy", "#Bones", "#Structure"]
+},
+{
+    heading: "Iron",
+    para: "Iron is a chemical element with the symbol Fe and atomic number 26. It is one of the most abundant elements on Earth and has a wide range of uses, including in construction, manufacturing, and metallurgy.",
+    extra: "Iron is known for its strength and versatility. It is essential for the production of steel, a crucial material in infrastructure and industrial applications.",
+    tag: ["#Element", "#Metallurgy", "#Construction"]
+},
+{
+    heading: "Copper",
+    para: "Copper is a chemical element with the symbol Cu and atomic number 29. It is a ductile metal known for its excellent electrical and thermal conductivity, making it valuable in various industries.",
+    extra: "Copper is used in electrical wiring, plumbing, architecture, and as a component in alloys. Its antimicrobial properties also make it useful in healthcare applications.",
+    tag: ["#Element", "#Conductivity", "#Metals"]
+},
+{
+    heading: "Wood",
+    para: "Wood is a natural material derived from the trunks, branches, and roots of trees and woody plants. It is known for its versatility and has been used by humans for construction, furniture, and various applications for centuries.",
+    extra: "Woodworking is a craft that involves shaping and working with wood to create functional and decorative objects. Sustainable forestry practices are important for wood conservation.",
+    tag: ["#Material", "#Craftsmanship", "#Sustainability"]
+},
+{
+    heading: "Technology",
+    para: "Technology refers to the application of scientific knowledge, tools, and techniques to solve problems, achieve goals, or improve processes. It encompasses a wide range of innovations and advancements across various fields.",
+    extra: "Technology has transformed nearly every aspect of human life, from communication and transportation to healthcare and entertainment. It continues to evolve rapidly.",
+    tag: ["#Innovation", "#Science", "#Advancement"]
+},
+{
+    heading: "Cruse",
+    para: "A cruse is a small container, typically made of pottery, ceramic, or other materials, used for holding liquids such as oil, wine, or other substances. Cruses have been used for storage and serving purposes throughout history.",
+    extra: "Cruses often have cultural or symbolic significance in religious and historical contexts. They come in various shapes and sizes.",
+    tag: ["#Container", "#Vessel", "#Storage"]
+},
+{
+    heading: "Ship",
+    para: "A ship is a large watercraft designed for navigation on seas, oceans, or other bodies of water. Ships come in various types, including cargo ships, passenger ships, warships, and more.",
+    extra: "Ships have played a pivotal role in human history, enabling trade, exploration, and military campaigns. They are essential for global transportation and maritime industries.",
+    tag: ["#Vessel", "#Navigation", "#Maritime"]
+},
+{
+    heading: "Boat",
+    para: "A boat is a small watercraft designed for personal or small-group transportation on water. Boats are typically smaller than ships and come in various forms, including rowboats, sailboats, and motorboats.",
+    extra: "Boating is a popular recreational activity, and boats are used for fishing, water sports, and leisurely cruises. They are versatile and accessible vessels.",
+    tag: ["#Watercraft", "#Recreation", "#Transportation"]
+},
+{
+    heading: "Concept",
+    para: "A concept is an abstract idea, notion, or thought that represents something mentally conceived or imagined. Concepts are fundamental to human cognition and communication, serving as building blocks for knowledge and understanding.",
+    extra: "Concepts can range from simple to complex and play a crucial role in various fields, including philosophy, science, and education.",
+    tag: ["#Ideas", "#Cognition", "#Understanding"]
+},
+{
+    heading: "Light",
+    para: "Light is electromagnetic radiation that is visible to the human eye. It is a form of energy that travels in waves and illuminates the world around us.",
+    extra: "Light has both practical and scientific significance, serving as a source of illumination, a tool for communication, and a subject of study in optics and physics.",
+    tag: ["#Radiation", "#Illumination", "#Physics"]
+},
+{
+    heading: "Chieftain",
+    para: "A chieftain is a tribal or clan leader who holds authority and leadership within a community or group. Chieftains often play significant roles in decision-making, governance, and conflict resolution.",
+    extra: "Chieftains can be found in various cultures and historical contexts, including indigenous societies and early human civilizations.",
+    tag: ["#Leadership", "#Tribal", "#Authority"]
+},
+{
+    heading: "Resource",
+    para: "A resource is a source of supply, support, or aid that can be used to meet a need or achieve a goal. Resources can be natural, human-made, or intangible and are essential for sustenance, development, and progress.",
+    extra: "Effective resource management is crucial for sustainability and responsible use of available assets. Resources can include materials, knowledge, energy, and more.",
+    tag: ["#Supply", "#Sustainability", "#Management"]
+},
+{
+    heading: "Advantage",
+    para: "An advantage is a favorable or beneficial circumstance or condition that provides an edge or superiority in a specific situation. Advantages can be strategic, competitive, or situational.",
+    extra: "Gaining and leveraging advantages are common goals in various contexts, such as business, sports, and military strategy. They contribute to success and achievement.",
+    tag: ["#Benefit", "#Superiority", "#Strategy"]
+},
+{
+    heading: "Decentralize",
+    para: "To decentralize means to distribute power, authority, or decision-making to multiple smaller units or entities, rather than centralizing it in a single, central authority. Decentralization is often seen as a way to promote autonomy and local control.",
+    extra: "Decentralization can be applied in governance, organizations, and technology systems. It aims to improve efficiency, flexibility, and responsiveness.",
+    tag: ["#Power Distribution", "#Autonomy", "#Decision-Making"]
+},
+{
+    heading: "Sail",
+    para: "To sail means to navigate a watercraft, such as a sailboat, by harnessing the wind's power using sails. Sailing is a popular recreational activity and an ancient method of transportation and exploration.",
+    extra: "Sailing involves a combination of skills, including sail handling, navigation, and understanding wind patterns. It has a rich history and continues to be a beloved pastime.",
+    tag: ["#Boating", "#Navigation", "#Recreation"]
+},
+{
+    heading: "Field",
+    para: "A field is an open area or expanse of land, often used for agricultural purposes, sports, research, or various activities. Fields can be natural or human-made and serve diverse functions.",
+    extra: "Fields can be found in rural and urban settings and have cultural and practical significance. They provide space for farming, sports, scientific experiments, and more.",
+    tag: ["#Land", "#Agriculture", "#Recreation"]
+},
+{
+    heading: "Play",
+    para: "Play is a voluntary and recreational activity engaged in for enjoyment, amusement, and fun. It is often characterized by imagination, creativity, and a lack of strict rules or goals.",
+    extra: "Play is essential for the development of children and contributes to well-being and social bonding in people of all ages. It encompasses various forms, from games to creative play.",
+    tag: ["#Recreation", "#Fun", "#Creativity"]
+},
+{
+    heading: "Vigorous",
+    para: "Vigorous describes something that is full of physical strength, energy, and intensity. It implies robustness, forcefulness, and an active and lively quality.",
+    extra: "Vigorous activities can include exercise, sports, or any strenuous and dynamic efforts. The term is often associated with vitality and enthusiasm.",
+    tag: ["#Strength", "#Energy", "#Intensity"]
+},
+{
+    heading: "Prosper",
+    para: "To prosper means to achieve success, wealth, and well-being. Prosperity often implies economic and personal growth, as well as an overall improvement in one's circumstances.",
+    extra: "Prosperity can be pursued through various means, including business endeavors, education, and personal development. It is a common aspiration for individuals and societies.",
+    tag: ["#Success", "#Wealth", "#Well-Being"]
+},
+{
+    heading: "Longship",
+    para: "A longship is a type of specialized naval vessel used by the ancient Norse peoples, particularly the Vikings, for exploration, trade, and warfare. Longships were characterized by their long and narrow design, which made them highly maneuverable.",
+    extra: "Longships played a significant role in Viking history and allowed them to navigate rivers, coastal waters, and open seas. They were essential for raiding and exploration in the medieval era.",
+    tag: ["#Norse", "#Viking", "#Naval Vessel"]
+},
+{
+    heading: "River",
+    para: "A river is a natural watercourse that flows towards an ocean, sea, lake, or another river. Rivers are vital for the Earth's hydrological cycle and serve as sources of freshwater, transportation routes, and habitats for diverse ecosystems.",
+    extra: "Rivers have played a central role in human history, providing water for agriculture, trade routes, and settlements. They hold cultural and ecological significance.",
+    tag: ["#Watercourse", "#Freshwater", "#Ecosystem"]
+},
+{
+    heading: "Economy",
+    para: "An economy refers to the system of production, distribution, and consumption of goods and services within a region or country. Economies are shaped by various factors, including government policies, market forces, and cultural influences.",
+    extra: "Economies can be categorized into different types, such as market economies, command economies, and mixed economies. They are central to the well-being and development of societies.",
+    tag: ["#Production", "#Consumption", "#Economic Systems"]
+},
+{
     heading: "Governance",
     para: "Governance refers to the process and system by which a group, organization, or entity is managed, directed, and controlled. It encompasses the decisions, policies, and actions that shape the direction and functioning of a governing body or institution.",
     extra: "Effective governance is essential in various sectors, including government, business, and non-profit organizations, as it influences decision-making, accountability, and overall performance.",
